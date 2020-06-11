@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GoodsRankingListCell" id="Kzh-GB-L2X" customClass="GoodsRankingListCell" customModule="Musinsa" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5sx-9L-oiS">
+                <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gbZ-7W-cVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-ci-IOq">
+                                <rect key="frame" x="0.0" y="0.0" width="670" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="sTM-KM-dpk"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LQq-Xl-0Hw">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-3h-3Bx">
+                                <rect key="frame" x="0.0" y="45" width="670" height="423"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gbZ-7W-cVQ" secondAttribute="bottom" id="CDf-mH-8i9"/>
+                    <constraint firstItem="gbZ-7W-cVQ" firstAttribute="leading" secondItem="5sx-9L-oiS" secondAttribute="leading" id="CyV-fE-UXd"/>
+                    <constraint firstItem="gbZ-7W-cVQ" firstAttribute="top" secondItem="5sx-9L-oiS" secondAttribute="top" id="HMp-34-fqF"/>
+                    <constraint firstAttribute="trailing" secondItem="gbZ-7W-cVQ" secondAttribute="trailing" id="za0-RQ-3Le"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="670" height="468"/>
+            <connections>
+                <outlet property="cvTabBar" destination="hr1-ci-IOq" id="kYc-R7-mQ0"/>
+                <outlet property="vContainer" destination="uGe-3h-3Bx" id="LxW-EQ-8UK"/>
+            </connections>
+            <point key="canvasLocation" x="240.57971014492756" y="250.44642857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>

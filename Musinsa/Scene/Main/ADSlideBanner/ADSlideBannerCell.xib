@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ADSlideBannerCell" id="3MT-lS-xsS" customClass="ADSlideBannerCell" customModule="Musinsa" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AGq-jh-sBA">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-y6-BdH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="213" id="PLR-eY-S38"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SJf-sQ-uYz">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rl-3j-zHW">
+                        <rect key="frame" x="274" y="153" width="100" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Xkt-0p-qNs">
+                                <rect key="frame" x="31" y="12" width="8.5" height="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sV-bx-C33">
+                                <rect key="frame" x="41.5" y="12" width="4.5" height="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSh-8b-f5l">
+                                <rect key="frame" x="48" y="12" width="8.5" height="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v81-9u-xft">
+                                <rect key="frame" x="64.5" y="12" width="8" height="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v81-9u-xft" firstAttribute="leading" secondItem="gSh-8b-f5l" secondAttribute="trailing" constant="8" id="7Eg-X6-zTP"/>
+                            <constraint firstItem="gSh-8b-f5l" firstAttribute="centerY" secondItem="6Rl-3j-zHW" secondAttribute="centerY" id="9YW-Iy-qqo"/>
+                            <constraint firstItem="Xkt-0p-qNs" firstAttribute="centerY" secondItem="gSh-8b-f5l" secondAttribute="centerY" id="GR2-va-h24"/>
+                            <constraint firstItem="8sV-bx-C33" firstAttribute="leading" secondItem="Xkt-0p-qNs" secondAttribute="trailing" constant="2" id="a8q-vV-DEa"/>
+                            <constraint firstItem="Xkt-0p-qNs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Rl-3j-zHW" secondAttribute="leading" constant="5" id="aVP-OD-kod"/>
+                            <constraint firstItem="v81-9u-xft" firstAttribute="centerY" secondItem="Xkt-0p-qNs" secondAttribute="centerY" id="bq0-N2-emN"/>
+                            <constraint firstItem="gSh-8b-f5l" firstAttribute="centerX" secondItem="6Rl-3j-zHW" secondAttribute="centerX" constant="2" id="byC-MI-xn1"/>
+                            <constraint firstAttribute="width" secondItem="6Rl-3j-zHW" secondAttribute="height" multiplier="100:40" id="i4C-Jo-n6Q"/>
+                            <constraint firstItem="8sV-bx-C33" firstAttribute="centerY" secondItem="Xkt-0p-qNs" secondAttribute="centerY" id="jDY-eF-zt5"/>
+                            <constraint firstItem="gSh-8b-f5l" firstAttribute="leading" secondItem="8sV-bx-C33" secondAttribute="trailing" constant="2" id="kC0-2y-0W0"/>
+                            <constraint firstAttribute="height" constant="40" id="zyd-Z7-syY"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="6Rl-3j-zHW" secondAttribute="bottom" constant="20" id="COE-fY-yDO"/>
+                    <constraint firstItem="DiP-y6-BdH" firstAttribute="leading" secondItem="AGq-jh-sBA" secondAttribute="leading" id="JZD-ZY-uc2"/>
+                    <constraint firstAttribute="trailing" secondItem="DiP-y6-BdH" secondAttribute="trailing" id="Pqi-tw-FIf"/>
+                    <constraint firstAttribute="trailing" secondItem="6Rl-3j-zHW" secondAttribute="trailing" constant="40" id="Xzy-cn-Edm"/>
+                    <constraint firstItem="DiP-y6-BdH" firstAttribute="top" secondItem="AGq-jh-sBA" secondAttribute="top" id="jht-Ww-uh3"/>
+                    <constraint firstAttribute="bottom" secondItem="DiP-y6-BdH" secondAttribute="bottom" id="qwL-4e-YnB"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="386" height="90"/>
+            <connections>
+                <outlet property="cvSlider" destination="DiP-y6-BdH" id="wFV-Qn-ect"/>
+                <outlet property="lbCurrentPage" destination="Xkt-0p-qNs" id="Qbk-s1-lts"/>
+                <outlet property="lbTotPage" destination="gSh-8b-f5l" id="rXp-vs-3X2"/>
+            </connections>
+            <point key="canvasLocation" x="-23.188405797101453" y="50.892857142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>
