@@ -48,6 +48,7 @@
         },
         "all":{
             "name":"전체",
+            "order":1,
             "list":[
                 {
                     "order":1,
@@ -107,6 +108,7 @@
         },
         "top": {
             "name":"상의",
+            "order":2,
             "list":[
                 {
                     "order":1,
@@ -166,6 +168,7 @@
         },
         "outer": {
             "name":"아우터",
+            "order":3,
             "list":[
                 {
                     "order":1,
@@ -225,6 +228,7 @@
         },
         "pants": {
             "name":"바지",
+            "order":4,
             "list":[
                 {
                     "order":1,
@@ -284,6 +288,7 @@
         },
         "bag": {
             "name":"가방",
+            "order":5,
             "list":[
                 {
                     "order":1,
@@ -343,6 +348,7 @@
         },
         "sneakers": {
             "name":"스니커즈",
+            "order":6,
             "list":[
                 {
                     "order":1,
@@ -402,6 +408,7 @@
         },
         "shoes": {
             "name":"신발",
+            "order":7,
             "list":[
                 {
                     "order":1,

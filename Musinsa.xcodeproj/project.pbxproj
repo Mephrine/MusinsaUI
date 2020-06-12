@@ -21,7 +21,8 @@
 		034F1F832491922D0069349D /* Musinsa.json in Resources */ = {isa = PBXBuildFile; fileRef = 034F1F822491922C0069349D /* Musinsa.json */; };
 		034F1F882491F5240069349D /* CallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F1F872491F5240069349D /* CallAPI.swift */; };
 		034F1F8A2491F52C0069349D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F1F892491F52C0069349D /* LoadingView.swift */; };
-		034F1F8C2491F5350069349D /* URLSession+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F1F8B2491F5350069349D /* URLSession+Ext.swift */; };
+		0350A7B624933FB700362B8F /* ADSlideBannerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350A7B524933FB700362B8F /* ADSlideBannerItemCell.swift */; };
+		0350A7B8249371B400362B8F /* ADSlideBannerPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350A7B7249371B400362B8F /* ADSlideBannerPageVC.swift */; };
 		03B2DB02248FCF8500D8F812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB01248FCF8500D8F812 /* AppDelegate.swift */; };
 		03B2DB06248FCF8500D8F812 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB05248FCF8500D8F812 /* MainVC.swift */; };
 		03B2DB09248FCF8500D8F812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B2DB07248FCF8500D8F812 /* Main.storyboard */; };
@@ -96,7 +97,8 @@
 		034F1F822491922C0069349D /* Musinsa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Musinsa.json; sourceTree = "<group>"; };
 		034F1F872491F5240069349D /* CallAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallAPI.swift; sourceTree = "<group>"; };
 		034F1F892491F52C0069349D /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		034F1F8B2491F5350069349D /* URLSession+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Ext.swift"; sourceTree = "<group>"; };
+		0350A7B524933FB700362B8F /* ADSlideBannerItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerItemCell.swift; sourceTree = "<group>"; };
+		0350A7B7249371B400362B8F /* ADSlideBannerPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerPageVC.swift; sourceTree = "<group>"; };
 		03B2DAFE248FCF8500D8F812 /* Musinsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musinsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B2DB01248FCF8500D8F812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03B2DB05248FCF8500D8F812 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -161,6 +163,8 @@
 				03B2DB4A248FDEF300D8F812 /* ADSlideBannerCell.swift */,
 				034F1F7424918A620069349D /* ADSlideBannerModel.swift */,
 				03B2DB52248FE03100D8F812 /* ADSlideBannerCell.xib */,
+				0350A7B524933FB700362B8F /* ADSlideBannerItemCell.swift */,
+				0350A7B7249371B400362B8F /* ADSlideBannerPageVC.swift */,
 			);
 			path = ADSlideBanner;
 			sourceTree = "<group>";
@@ -291,7 +295,6 @@
 		03B2DB18248FD17A00D8F812 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				034F1F8B2491F5350069349D /* URLSession+Ext.swift */,
 				03B2DB1C248FD35800D8F812 /* Date+Ext.swift */,
 				03B2DB1B248FD35800D8F812 /* UIViewController+Ext.swift */,
 				03B2DB43248FDCAD00D8F812 /* UIColor+Ext.swift */,
@@ -456,7 +459,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.frameworkputFile",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -514,10 +517,11 @@
 				03F1101A249288BB0074BD83 /* GoodsRankingListItemModel.swift in Sources */,
 				03F1100C2492590C0074BD83 /* Navigator.swift in Sources */,
 				03B2DB2F248FD6D200D8F812 /* DetailVM.swift in Sources */,
-				034F1F8C2491F5350069349D /* URLSession+Ext.swift in Sources */,
+				0350A7B624933FB700362B8F /* ADSlideBannerItemCell.swift in Sources */,
 				034F1F662490A0540069349D /* UIView+Ext.swift in Sources */,
 				03B2DB3A248FDB3200D8F812 /* StringDefinition.swift in Sources */,
 				03B2DB5F248FE6E900D8F812 /* BaseNavigationController.swift in Sources */,
+				0350A7B8249371B400362B8F /* ADSlideBannerPageVC.swift in Sources */,
 				03B2DB49248FDDDF00D8F812 /* GoodsRankingTabItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

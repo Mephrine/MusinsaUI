@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigation = BaseNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
         
-        
         let mainVM = MainVM(service: service, navigator: Navigator(navi: navigation))
         let mainVC = MainVC.instantiate(withViewModel: mainVM)!
         

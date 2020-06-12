@@ -9,10 +9,14 @@
 import Foundation
 
 struct ADSlideBannerModel {
-    private let item: [ADSlideBanner]
+    let item: [ADSlideBanner]
     
     var titleNm: String {
         return ""
+    }
+    
+    var maxPage: String {
+        return String(item.count)
     }
     
     init(item: [ADSlideBanner]) {

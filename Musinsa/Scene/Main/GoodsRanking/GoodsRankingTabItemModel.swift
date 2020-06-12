@@ -9,15 +9,13 @@
 import Foundation
 
 struct GoodsRankingTabItemModel {
-    let item: GoodsList
+    let tabNm: String
+    let index: Int
     let isSelected: Bool
     
-    var tabNm: String {
-        return item.name
-    }
-    
-    init(item: GoodsList, isSelected: Bool) {
-        self.item = item
+    init(tabNm: String, index: Int, isSelected: Bool) {
+        self.tabNm = tabNm
+        self.index = index
         self.isSelected = isSelected
     }
 }

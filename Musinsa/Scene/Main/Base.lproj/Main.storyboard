@@ -54,7 +54,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="98"/>
+            <point key="canvasLocation" x="99" y="98"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="DoZ-7Z-quQ">
+            <objects>
+                <pageViewController storyboardIdentifier="PageVC" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="n2t-X2-cT1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPF-ym-FN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="779"/>
         </scene>
         <!--Goods Ranking List PageVC-->
         <scene sceneID="Ywc-xU-WAv">
@@ -85,10 +93,42 @@
                             <outlet property="delegate" destination="xcz-E1-5Uw" id="jSO-YN-prI"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="collectionView" destination="zWh-US-Ra6" id="gbT-oT-tti"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N64-8o-rzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="780"/>
+            <point key="canvasLocation" x="874" y="1479"/>
+        </scene>
+        <!--Slide Banner PageVC-->
+        <scene sceneID="q54-KZ-A82">
+            <objects>
+                <viewController storyboardIdentifier="ADSlideBannerPageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EhT-hr-KzJ" customClass="ADSlideBannerPageVC" customModule="Musinsa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iPR-Lb-cZw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-DF-rOh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OSh-DF-rOh" firstAttribute="top" secondItem="iPR-Lb-cZw" secondAttribute="top" id="0mH-wP-aYd"/>
+                            <constraint firstItem="WFV-qt-HJu" firstAttribute="trailing" secondItem="OSh-DF-rOh" secondAttribute="trailing" id="Ddm-tF-Gyh"/>
+                            <constraint firstItem="OSh-DF-rOh" firstAttribute="leading" secondItem="WFV-qt-HJu" secondAttribute="leading" id="qdJ-uN-bMn"/>
+                            <constraint firstAttribute="bottom" secondItem="OSh-DF-rOh" secondAttribute="bottom" id="uut-eX-DUm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WFV-qt-HJu"/>
+                    </view>
+                    <connections>
+                        <outlet property="ivBanner" destination="OSh-DF-rOh" id="qKl-bw-BWj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oI-qH-BKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-497" y="1479"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="kbh-1J-2w1">
@@ -118,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe6-p3-H8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="99"/>
+            <point key="canvasLocation" x="1581" y="98"/>
         </scene>
     </scenes>
 </document>

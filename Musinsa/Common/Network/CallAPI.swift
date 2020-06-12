@@ -25,22 +25,12 @@ class CallAPI {
     fileprivate enum path {
         case main
         
-        // URL
-        private var strUrl: String {
-            switch self {
-            case .main:
-                return "/Dummy/Musinsa.json"
-            }
-        }
-        
-        // 파라미터
-        private var parameters: [String: Any]? {
-            return nil
-        }
-        
         // PathURL
-        fileprivate var pathURL: String {
-            return "\(strUrl)"
+        fileprivate var pathURL: String? {
+            if let path = Bundle.main.path(forResource: "Musinsa", ofType: "json") {
+                return path
+            }
+            return nil
         }
     }
     
@@ -93,53 +83,17 @@ class CallAPI {
      - Note: 현재 날씨 API 조회 및 결과값 반환
     */
     func mainData(_ completion: @escaping (Result<MainData, APIError>) -> Void) {
-        guard let url = URL(string: path.main.pathURL) else {
-            p("getCurrentWeather error")
-            DispatchQueue.main.async {
-                completion(.failure(.erroURL))
-            }
-            return
-        }
-        
-        let loadAPI = API<MainData>(url)
-        session.load(loadAPI) { resultData, success in
-            if !success {
-                DispatchQueue.main.async {
-                    completion(.failure(.network))
-                }
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path.main.pathURL!), options: .mappedIfSafe)
+            if let mainData = data.decode(MainData.self) {
+                completion(.success(mainData))
                 return
             }
             
-            guard let data = resultData else {
-                DispatchQueue.main.async {
-                    completion(.failure(.noData))
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                completion(.success(data))
-            }
-        }
-    }
-}
-
-/**
- # (S) API<T>.swift
- - Author: Mephrine
- - Date: 20.05.28
- - Note: request 후 전달한 형식의 data를 받기 위해 사용하는 구조체
-*/
-struct API<T> {
-    var request: URLRequest
-    let data: (Data) -> T?
-}
-
-extension API where T: Decodable {
-    init(_ url: URL) {
-        self.request = URLRequest(url: url)
-        self.data = {
-            try? JSONDecoder().decode(T.self, from: $0)
+            completion(.failure(.erroURL))
+        } catch let error {
+            p("path error : \(error.localizedDescription)")
+            completion(.failure(.erroURL))
         }
     }
 }

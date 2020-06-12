@@ -14,8 +14,8 @@ fileprivate protocol MainProtocol {
     var linkURL: Dynamic<String?> { get set }
     
     // Output
-    var mainData: Dynamic<MainData>? { get set }
-    var errorMsg: Dynamic<CallAPI.APIError>? { get set }
+    var mainData: Dynamic<MainData?> { get set }
+    var errorMsg: Dynamic<CallAPI.APIError> { get set }
     
     //func
     func requsetMain()
@@ -29,18 +29,17 @@ final class MainVM: BaseVM, MainProtocol {
     var linkURL: Dynamic<String?> = Dynamic(nil)
     
     // Output
-    var mainData: Dynamic<MainData>?
-    var errorMsg: Dynamic<CallAPI.APIError>?
+    var mainData: Dynamic<MainData?> = Dynamic(nil)
+    var errorMsg: Dynamic<CallAPI.APIError> = Dynamic(.none)
     
     //service
     typealias Service = HasMainService
     private var service: Service
-    private var navigator: Navigator
+    var navigator: Navigator
     
     init(service: AppService, navigator: Navigator) {
         self.service = service
         self.navigator = navigator
-        self.errorMsg = Dynamic(.none)
         super.init()
         self.bind()
     }
@@ -66,10 +65,10 @@ final class MainVM: BaseVM, MainProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                self.mainData = Dynamic(data)
+                self.mainData.value = data
                 break
             case .failure(let error):
-                self.errorMsg = Dynamic(error)
+                self.errorMsg.value = error
                 break
             }
         }

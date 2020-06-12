@@ -27,6 +27,7 @@ struct GoodsHeader: Codable {
 
 struct GoodsList: Codable {
     let name: String
+    let order: Int
     let list: [GoodsListItem]?
 }
 
