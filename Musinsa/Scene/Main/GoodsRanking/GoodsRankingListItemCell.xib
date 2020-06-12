@@ -113,6 +113,7 @@
             </collectionViewCellContentView>
             <size key="customSize" width="258" height="309"/>
             <connections>
+                <outlet property="ivGoods" destination="jMf-uN-mmU" id="T47-iu-nr1"/>
                 <outlet property="lbDiscount" destination="eDi-pV-gq4" id="7tY-Zr-r0M"/>
                 <outlet property="lbName" destination="YAX-rB-qQI" id="MyJ-Iv-wXO"/>
                 <outlet property="lbPrice" destination="12N-B3-PX7" id="t2W-mV-6Ob"/>

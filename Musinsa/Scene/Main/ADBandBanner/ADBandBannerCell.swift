@@ -19,12 +19,18 @@ class ADBandBannerCell: BaseCollectionViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubTitle: UILabel!
     
+    var model: ADBandBannerModel? = nil
     
     func configure(model: ADBandBannerModel) {
+        self.model = model
         self.lbTitle.text = model.title
         self.lbSubTitle.text = model.subTitle
-        self.backgroundColor = model.colorBG
+        self.ivBanner.superview?.backgroundColor = model.colorBG
         self.ivBanner.kf.setImage(with: model.imageURL)
+    }
+    
+    @IBAction func tapBtnBanner(_ sender: Any) {
+        model?.goDetail()
     }
 }
 

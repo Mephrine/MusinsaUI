@@ -10,6 +10,7 @@ import UIKit
 
 struct ADBandBannerModel {
     private let item: ADBandBanner
+    private let navi: Navigator
     
     var imageURL: URL? {
         if let url = URL(string: item.image) {
@@ -34,8 +35,13 @@ struct ADBandBannerModel {
         return item.link
     }
     
-    init(item: ADBandBanner) {
+    init(item: ADBandBanner, navigator: Navigator) {
         self.item = item
+        self.navi = navigator
+    }
+    
+    func goDetail() {
+        self.navi.goDetail(url: linkURL)
     }
 }
 

@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-ci-IOq">
-                                <rect key="frame" x="0.0" y="0.0" width="670" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="670" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="sTM-KM-dpk"/>
+                                    <constraint firstAttribute="height" constant="36" id="sTM-KM-dpk"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LQq-Xl-0Hw">
                                     <size key="itemSize" width="128" height="128"/>
@@ -34,7 +34,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-3h-3Bx">
-                                <rect key="frame" x="0.0" y="45" width="670" height="423"/>
+                                <rect key="frame" x="0.0" y="36" width="670" height="432"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>

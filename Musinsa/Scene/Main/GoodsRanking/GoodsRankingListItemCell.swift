@@ -9,6 +9,7 @@
 import UIKit
 
 class GoodsRankingListItemCell: BaseCollectionViewCell {
+    @IBOutlet weak var ivGoods: UIImageView!
     @IBOutlet weak var lbRank: UILabel!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbPrice: UILabel!

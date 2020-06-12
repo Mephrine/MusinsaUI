@@ -11,48 +11,48 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ADSlideBannerCell" id="3MT-lS-xsS" customClass="ADSlideBannerCell" customModule="Musinsa" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AGq-jh-sBA">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-lL-Osp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="213" id="3qY-Lx-FEW"/>
+                            <constraint firstAttribute="width" secondItem="IvS-lL-Osp" secondAttribute="height" multiplier="23:10" id="4De-9z-ytj"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rl-3j-zHW">
-                        <rect key="frame" x="274" y="153" width="100" height="40"/>
+                        <rect key="frame" x="286.5" y="125" width="87.5" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Xkt-0p-qNs">
-                                <rect key="frame" x="31" y="12" width="8.5" height="16"/>
+                                <rect key="frame" x="18.5" y="9.5" width="8.5" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sV-bx-C33">
-                                <rect key="frame" x="41.5" y="12" width="4.5" height="16"/>
+                                <rect key="frame" x="32" y="9.5" width="4.5" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSh-8b-f5l">
-                                <rect key="frame" x="48" y="12" width="8.5" height="16"/>
+                                <rect key="frame" x="41.5" y="9.5" width="8.5" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v81-9u-xft">
-                                <rect key="frame" x="64.5" y="12" width="10" height="16"/>
+                                <rect key="frame" x="58" y="9.5" width="10" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuU-Gg-4rK">
-                                <rect key="frame" x="54.5" y="0.0" width="30" height="40"/>
+                                <rect key="frame" x="48" y="0.0" width="30" height="35"/>
                                 <connections>
                                     <action selector="tapBtnNext:" destination="3MT-lS-xsS" eventType="touchUpInside" id="d7Y-ne-o0x"/>
                                 </connections>
@@ -65,7 +65,7 @@
                             <constraint firstItem="gSh-8b-f5l" firstAttribute="centerY" secondItem="6Rl-3j-zHW" secondAttribute="centerY" id="9YW-Iy-qqo"/>
                             <constraint firstItem="Xkt-0p-qNs" firstAttribute="centerY" secondItem="gSh-8b-f5l" secondAttribute="centerY" id="GR2-va-h24"/>
                             <constraint firstItem="fuU-Gg-4rK" firstAttribute="top" secondItem="6Rl-3j-zHW" secondAttribute="top" id="MXV-9j-FAP"/>
-                            <constraint firstItem="8sV-bx-C33" firstAttribute="leading" secondItem="Xkt-0p-qNs" secondAttribute="trailing" constant="2" id="a8q-vV-DEa"/>
+                            <constraint firstItem="8sV-bx-C33" firstAttribute="leading" secondItem="Xkt-0p-qNs" secondAttribute="trailing" constant="5" id="a8q-vV-DEa"/>
                             <constraint firstItem="Xkt-0p-qNs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Rl-3j-zHW" secondAttribute="leading" constant="5" id="aVP-OD-kod"/>
                             <constraint firstItem="v81-9u-xft" firstAttribute="centerY" secondItem="Xkt-0p-qNs" secondAttribute="centerY" id="bq0-N2-emN"/>
                             <constraint firstItem="gSh-8b-f5l" firstAttribute="centerX" secondItem="6Rl-3j-zHW" secondAttribute="centerX" constant="2" id="byC-MI-xn1"/>
@@ -73,23 +73,24 @@
                             <constraint firstAttribute="width" secondItem="6Rl-3j-zHW" secondAttribute="height" multiplier="100:40" id="i4C-Jo-n6Q"/>
                             <constraint firstAttribute="bottom" secondItem="fuU-Gg-4rK" secondAttribute="bottom" id="j8t-dq-OIX"/>
                             <constraint firstItem="8sV-bx-C33" firstAttribute="centerY" secondItem="Xkt-0p-qNs" secondAttribute="centerY" id="jDY-eF-zt5"/>
-                            <constraint firstItem="gSh-8b-f5l" firstAttribute="leading" secondItem="8sV-bx-C33" secondAttribute="trailing" constant="2" id="kC0-2y-0W0"/>
-                            <constraint firstAttribute="height" constant="40" id="zyd-Z7-syY"/>
+                            <constraint firstItem="gSh-8b-f5l" firstAttribute="leading" secondItem="8sV-bx-C33" secondAttribute="trailing" constant="5" id="kC0-2y-0W0"/>
+                            <constraint firstAttribute="height" constant="35" id="zyd-Z7-syY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="17.5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="IvS-lL-Osp" secondAttribute="bottom" id="4bn-OD-xWV"/>
                     <constraint firstAttribute="trailing" secondItem="IvS-lL-Osp" secondAttribute="trailing" id="8l3-Ds-Jo7"/>
-                    <constraint firstAttribute="bottom" secondItem="6Rl-3j-zHW" secondAttribute="bottom" constant="20" id="COE-fY-yDO"/>
+                    <constraint firstAttribute="bottom" secondItem="IvS-lL-Osp" secondAttribute="bottom" priority="999" id="L2C-xB-kDC"/>
                     <constraint firstAttribute="trailing" secondItem="6Rl-3j-zHW" secondAttribute="trailing" constant="40" id="Xzy-cn-Edm"/>
+                    <constraint firstItem="IvS-lL-Osp" firstAttribute="width" secondItem="AGq-jh-sBA" secondAttribute="width" id="b3N-U7-onn"/>
                     <constraint firstItem="IvS-lL-Osp" firstAttribute="leading" secondItem="AGq-jh-sBA" secondAttribute="leading" id="cGb-OQ-k3d"/>
                     <constraint firstItem="IvS-lL-Osp" firstAttribute="top" secondItem="AGq-jh-sBA" secondAttribute="top" id="hxi-Ec-JMl"/>
+                    <constraint firstItem="6Rl-3j-zHW" firstAttribute="bottom" secondItem="IvS-lL-Osp" secondAttribute="bottom" constant="-20" id="u9V-ED-NMT"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="386" height="90"/>

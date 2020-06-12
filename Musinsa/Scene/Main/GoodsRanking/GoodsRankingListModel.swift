@@ -10,6 +10,7 @@ import Foundation
 
 struct GoodsRankingListModel {
     let item: GoodsRanking
+    let navi: Navigator
     private var index = 0
     
     var list: [GoodsList] {
@@ -20,8 +21,9 @@ struct GoodsRankingListModel {
         return self.list.map{ $0.name }
     }
     
-    init(item: GoodsRanking) {
+    init(item: GoodsRanking, navigator: Navigator) {
         self.item = item
+        self.navi = navigator
     }
     
     func tabList(tabNm: String) -> GoodsList {
@@ -41,7 +43,7 @@ struct GoodsRankingListModel {
     }
     
     // struct라서 value이기 때문에, mutating 사용
-    mutating func selectedIndex(_ index: Int) {
+    mutating func setIndex(_ index: Int) {
         self.index = index
     }
     
@@ -49,20 +51,30 @@ struct GoodsRankingListModel {
         return self.index
     }
     
-    mutating func beforeLoadIndex() -> Int?  {
-        if( self.index == 0) {
+    //loop
+    func beforeLoadIndex() -> Int?  {
+        if( self.index <= 0) {
+            return self.cnt() - 1
+        }
+       
+        guard self.cnt() > self.index - 1 else {
             return nil
         }
-        self.index -= 1
-        return index
+        
+        return self.index - 1
     }
     
-    mutating func afterLoadIndex() -> Int? {
+    //loop
+    func afterLoadIndex() -> Int? {
         if( self.index >= self.cnt() - 1) {
+            return  0
+        }
+        
+        guard self.cnt() > self.index + 1 else {
             return nil
         }
-        self.index += 1
-        return index
+        
+        return self.index + 1
     }
     
 }

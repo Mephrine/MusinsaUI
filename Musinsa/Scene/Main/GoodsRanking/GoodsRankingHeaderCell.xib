@@ -11,49 +11,63 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GoodsRankingHeaderCell" id="2lg-yN-x4j" customClass="GoodsRankingHeaderCell" customModule="Musinsa" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="544" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="544" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SVX-D7-hof">
-                <rect key="frame" x="0.0" y="0.0" width="544" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="544" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="05.27 11:11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmv-re-ard">
-                        <rect key="frame" x="112" y="70" width="65.5" height="18"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품 랭킹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FA-ro-gh9">
-                        <rect key="frame" x="20" y="63" width="82" height="27"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="22"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbt-Us-SJ5">
-                        <rect key="frame" x="464" y="52" width="80" height="48"/>
-                        <inset key="contentEdgeInsets" minX="20" minY="15" maxX="20" maxY="15"/>
-                        <state key="normal" title="전체 &gt;">
-                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="tapBtnAll:" destination="2lg-yN-x4j" eventType="touchUpInside" id="zhc-fm-2v9"/>
-                        </connections>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-0m-JQG">
+                        <rect key="frame" x="20" y="0.0" width="504" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdf-OY-lGU">
+                                <rect key="frame" x="0.0" y="34.5" width="9" height="25.5"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svf-6M-YyZ">
+                                <rect key="frame" x="19" y="41" width="6.5" height="17"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhY-8S-cyx">
+                                <rect key="frame" x="450" y="24" width="54" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="15" maxX="0.0" maxY="5"/>
+                                <state key="normal" title="전체 &gt;">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapBtnAll:" destination="2lg-yN-x4j" eventType="touchUpInside" id="hMX-aQ-jDr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="svf-6M-YyZ" firstAttribute="leading" secondItem="Pdf-OY-lGU" secondAttribute="trailing" constant="10" id="BdO-BN-mGs"/>
+                            <constraint firstItem="Pdf-OY-lGU" firstAttribute="leading" secondItem="SqK-0m-JQG" secondAttribute="leading" id="Gzx-IL-6Hm"/>
+                            <constraint firstAttribute="bottom" secondItem="Pdf-OY-lGU" secondAttribute="bottom" id="OmG-od-0nJ"/>
+                            <constraint firstAttribute="bottom" secondItem="QhY-8S-cyx" secondAttribute="bottom" id="Qvq-Hd-X0g"/>
+                            <constraint firstAttribute="bottom" secondItem="svf-6M-YyZ" secondAttribute="bottom" constant="2" id="WC9-Rh-l3G"/>
+                            <constraint firstAttribute="trailing" secondItem="QhY-8S-cyx" secondAttribute="trailing" id="qVu-VD-CSY"/>
+                            <constraint firstItem="QhY-8S-cyx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="svf-6M-YyZ" secondAttribute="trailing" constant="10" id="sFh-qi-RnM"/>
+                            <constraint firstAttribute="height" constant="60" id="zbl-nv-gVY"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Pmv-re-ard" firstAttribute="leading" secondItem="9FA-ro-gh9" secondAttribute="trailing" constant="10" id="1LS-aW-cMu"/>
-                    <constraint firstAttribute="bottom" secondItem="Cbt-Us-SJ5" secondAttribute="bottom" id="UK0-WW-fh8"/>
-                    <constraint firstAttribute="bottom" secondItem="9FA-ro-gh9" secondAttribute="bottom" constant="10" id="eT9-fA-leU"/>
-                    <constraint firstItem="9FA-ro-gh9" firstAttribute="leading" secondItem="SVX-D7-hof" secondAttribute="leading" constant="20" id="fTx-y6-4XP"/>
-                    <constraint firstItem="Cbt-Us-SJ5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pmv-re-ard" secondAttribute="trailing" constant="10" id="hw3-CS-BWC"/>
-                    <constraint firstAttribute="bottom" secondItem="Pmv-re-ard" secondAttribute="bottom" constant="12" id="m1O-Bp-2Ex"/>
-                    <constraint firstAttribute="trailing" secondItem="Cbt-Us-SJ5" secondAttribute="trailing" id="oSc-8P-KWX"/>
+                    <constraint firstAttribute="bottom" secondItem="SqK-0m-JQG" secondAttribute="bottom" priority="999" id="1rs-tl-4Tg"/>
+                    <constraint firstItem="SqK-0m-JQG" firstAttribute="top" secondItem="SVX-D7-hof" secondAttribute="top" id="EIg-Ye-wey"/>
+                    <constraint firstAttribute="trailing" secondItem="SqK-0m-JQG" secondAttribute="trailing" constant="20" id="GVS-LG-hYh"/>
+                    <constraint firstItem="SqK-0m-JQG" firstAttribute="leading" secondItem="SVX-D7-hof" secondAttribute="leading" constant="20" id="cEP-aN-jib"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="544" height="100"/>
             <connections>
-                <outlet property="lbTitle" destination="9FA-ro-gh9" id="Wya-Ov-gtG"/>
-                <outlet property="lbUpdateTime" destination="Pmv-re-ard" id="XW2-3s-4yF"/>
+                <outlet property="lbTitle" destination="Pdf-OY-lGU" id="oKB-5E-TbQ"/>
+                <outlet property="lbUpdateTime" destination="svf-6M-YyZ" id="utm-t1-AB8"/>
             </connections>
             <point key="canvasLocation" x="-123.18840579710145" y="220.3125"/>
         </collectionViewCell>

@@ -11,3 +11,6 @@ public let SESSION_TIME_OUT                  = 30.0
 
 //MARK: - Domain
 public let WEB_DOMAIN                               = "https://store.musinsa.com"
+
+
+public let tabBarHeight                     = 36.0

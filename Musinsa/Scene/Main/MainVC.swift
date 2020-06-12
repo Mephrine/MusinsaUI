@@ -33,17 +33,17 @@ final class MainVC: BaseVC, ViewControllerProtocol {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        viewModel?.requestAPI.value = true
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel?.requestAPI.value = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -94,9 +94,8 @@ final class MainVC: BaseVC, ViewControllerProtocol {
         if let flowLayout = cvMain.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumInteritemSpacing = 0.0
             flowLayout.minimumLineSpacing      = 20
-            flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
             flowLayout.estimatedItemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: cvMain.frame.size.height)
-            flowLayout.itemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: cvMain.frame.size.height)
         }
         
         // register
@@ -113,13 +112,12 @@ final class MainVC: BaseVC, ViewControllerProtocol {
 }
 
 
-extension MainVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
         switch section {
         case 2:
             return 2
@@ -148,13 +146,14 @@ extension MainVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
         }
         return UICollectionViewCell()
     }
+    
 }
 
 extension MainVC  {
     func adSlideBannerCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> ADSlideBannerCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adSlideBannerCell, for: indexPath) as! ADSlideBannerCell
         if let viewModel = self.viewModel, let data = viewModel.mainData.value?.slideBanner {
-            let cellModel = ADSlideBannerModel(item: data)
+            let cellModel = ADSlideBannerModel(item: data, navigatior: viewModel.navigator)
             cell.configure(model: cellModel)
         }
         
@@ -164,7 +163,7 @@ extension MainVC  {
     func adBandBannerCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> ADBandBannerCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adBandBannerCell, for: indexPath) as! ADBandBannerCell
         if let viewModel = self.viewModel, let data = viewModel.mainData.value?.bandBanner {
-            let cellModel = ADBandBannerModel(item: data)
+            let cellModel = ADBandBannerModel(item: data, navigator: viewModel.navigator)
             cell.configure(model: cellModel)
         }
         
@@ -186,7 +185,7 @@ extension MainVC  {
         // 헤더
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: goodsRankingListCell, for: indexPath) as! GoodsRankingListCell
         if let viewModel = self.viewModel, let data = viewModel.mainData.value?.ranking {
-            let cellModel = GoodsRankingListModel(item: data)
+            let cellModel = GoodsRankingListModel(item: data, navigator: viewModel.navigator)
             cell.configure(model: cellModel)
         }
         

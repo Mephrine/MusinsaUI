@@ -17,7 +17,7 @@ import UIKit
 
 class BaseCollectionViewCell: UICollectionViewCell {
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        
+
         setNeedsLayout()
         layoutIfNeeded()
 

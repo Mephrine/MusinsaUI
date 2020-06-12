@@ -35,7 +35,7 @@ final class MainVM: BaseVM, MainProtocol {
     //service
     typealias Service = HasMainService
     private var service: Service
-    var navigator: Navigator
+    let navigator: Navigator
     
     init(service: AppService, navigator: Navigator) {
         self.service = service

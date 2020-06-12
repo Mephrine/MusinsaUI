@@ -18,6 +18,8 @@ class GoodsRankingListCell: BaseCollectionViewCell {
     @IBOutlet weak var cvTabBar: UICollectionView!
     @IBOutlet weak var vContainer: UIView!
     
+    var pageVC: UIPageViewController?
+    
     //let
     let reusableCell = "GoodsRankingTabItemCell"
     var model: GoodsRankingListModel? = nil
@@ -25,6 +27,11 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         var arrContentsVC = [GoodsRankingListPageVC]()
         for index in 0 ..< (model?.cnt() ?? 0) {
             let contentsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GoodsRankingListPageVC") as! GoodsRankingListPageVC
+            
+            if let item = model?.list[index], let navi = model?.navi {
+                let viewModel = GoodsRankingListPageVM(item: item, navigator: navi)
+                contentsVC.viewModel = viewModel
+            }
             contentsVC.view.tag = index
             arrContentsVC.append(contentsVC)
         }
@@ -38,33 +45,48 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         self.cvTabBar.dataSource = self
         self.cvTabBar.delegate   = self
         self.cvTabBar.register(UINib(nibName: reusableCell, bundle: nil), forCellWithReuseIdentifier: reusableCell)
-        self.cvTabBar.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.cvTabBar.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         if let flowLayout = cvTabBar.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.minimumInteritemSpacing = 0
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.estimatedItemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: 100)
-            flowLayout.itemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: 100)
+            flowLayout.estimatedItemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: cvTabBar.bounds.height)
         }
         
         // PageViewController
         let pageViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageVC") as! UIPageViewController
-        
+
         pageViewController.delegate = self
         pageViewController.dataSource = self
-        
-        pageViewController.setViewControllers(self.pageContentsVC, direction: .forward, animated: true, completion: nil)
-        if let mainVC = self.window?.rootViewController?.presentingViewController as? MainVC {
+
+        if let navi = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController, let mainVC = navi.visibleViewController as? MainVC {
             mainVC.addChild(pageViewController)
         }
         self.vContainer.addSubview(pageViewController.view)
-        
+
         pageViewController.view.makeConstSuperView()
+
+        self.pageVC = pageViewController
     }
     
     func configure(model: GoodsRankingListModel) {
         self.model = model
+        self.cvTabBar.reloadData()
+        
+        if let firstVC = self.pageContentsVC.first {
+            pageVC?.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func changeViewController(index: Int) -> GoodsRankingListPageVC {
+        let viewControler = pageContentsVC[index]
+        
+        return viewControler
+    }
+    
+    func moveTabBar(_ index: Int) {
+        
     }
 }
 
@@ -92,7 +114,7 @@ extension GoodsRankingListCell: UIPageViewControllerDelegate, UIPageViewControll
             return nil
         }
         
-        return pageContentsVC[beforeIndex]
+        return changeViewController(index: beforeIndex)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -100,9 +122,16 @@ extension GoodsRankingListCell: UIPageViewControllerDelegate, UIPageViewControll
             return nil
         }
         
-        return pageContentsVC[afterIndex]
+        return changeViewController(index: afterIndex)
     }
     
-    
-    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed && finished {
+            if let currentVC = pageViewController.viewControllers?.first {
+                let index = currentVC.view.tag
+                model?.setIndex(index)
+                self.moveTabBar(index)
+            }
+        }
+    }
 }
