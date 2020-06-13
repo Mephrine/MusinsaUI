@@ -38,6 +38,10 @@ struct GoodsRankingListModel {
         return GoodsRankingTabItemModel(tabNm: listTabNm[index], index: index, isSelected: isSelected(index))
     }
     
+    func tabNm(index: Int) -> String {
+        return listTabNm[index]
+    }
+    
     func cnt() -> Int {
         return self.list.count
     }

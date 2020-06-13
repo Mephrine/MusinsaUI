@@ -27,11 +27,14 @@ struct GoodsRankingListItemModel {
     }
     
     var price: String {
-        return item.price.toPrice
+        return item.price.toPrice + "원"
     }
     
     var sale: String {
-        return String(format: "%.0", item.sale) + "%"
+        if item.sale > 0 {
+            String(format: "%.0", item.sale) + "%"
+        }
+        return ""
     }
     
     var coupon: Bool {

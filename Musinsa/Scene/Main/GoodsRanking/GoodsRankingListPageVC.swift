@@ -29,20 +29,30 @@ class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     //MARK: - e.g.
     override func initView() {
-        self.cvList.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.cvList.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         self.cvList.register(UINib(nibName: reusableCell, bundle: nil), forCellWithReuseIdentifier: reusableCell)
         self.cvList.isScrollEnabled  = false
         
         if let flowLayout = self.cvList.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumLineSpacing      = 10
+            flowLayout.scrollDirection = .vertical
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            
-            let width = self.cvList.bounds.width / 3
+
+            let width = pageListCellWidth
             let height = width + 50
             flowLayout.itemSize = CGSize.init(width: width, height: height)
+            flowLayout.estimatedItemSize = .zero
+//            flowLayout.estimatedItemSize = CGSize.init(width: width, height: height)
         }
+        self.cvList.delegate = self
+        self.cvList.dataSource = self
     }
     
 }
@@ -58,6 +68,8 @@ extension GoodsRankingListPageVC: UICollectionViewDelegate, UICollectionViewData
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCell, for: indexPath) as? GoodsRankingListItemCell, let item = viewModel?.list() {
             let cellModel = GoodsRankingListItemModel(item: item[index])
             cell.configure(model: cellModel)
+            
+            return cell
         }
        
         return UICollectionViewCell()

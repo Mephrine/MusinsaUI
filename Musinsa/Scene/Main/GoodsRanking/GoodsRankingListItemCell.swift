@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoodsRankingListItemCell: BaseCollectionViewCell {
+class GoodsRankingListItemCell: UICollectionViewCell {
     @IBOutlet weak var ivGoods: UIImageView!
     @IBOutlet weak var lbRank: UILabel!
     @IBOutlet weak var lbName: UILabel!
@@ -23,5 +23,8 @@ class GoodsRankingListItemCell: BaseCollectionViewCell {
         self.lbPrice.text = model.price
         self.lbDiscount.text = model.sale
         self.vCoupon.isHidden = !model.coupon
+        if let url = model.imageURL {
+            self.ivGoods.kf.setImage(with: url)
+        }
     }
 }

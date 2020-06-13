@@ -17,35 +17,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gbZ-7W-cVQ">
-                        <rect key="frame" x="0.0" y="0.0" width="670" height="468"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-ci-IOq">
-                                <rect key="frame" x="0.0" y="0.0" width="670" height="36"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="sTM-KM-dpk"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LQq-Xl-0Hw">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-3h-3Bx">
-                                <rect key="frame" x="0.0" y="36" width="670" height="432"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                    </stackView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-ci-IOq">
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="56"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="sTM-KM-dpk"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LQq-Xl-0Hw">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-3h-3Bx">
+                        <rect key="frame" x="0.0" y="66" width="670" height="0.0"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" identifier="constContainerH" id="Ytj-6G-Lwi"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="gbZ-7W-cVQ" secondAttribute="bottom" id="CDf-mH-8i9"/>
-                    <constraint firstItem="gbZ-7W-cVQ" firstAttribute="leading" secondItem="5sx-9L-oiS" secondAttribute="leading" id="CyV-fE-UXd"/>
-                    <constraint firstItem="gbZ-7W-cVQ" firstAttribute="top" secondItem="5sx-9L-oiS" secondAttribute="top" id="HMp-34-fqF"/>
-                    <constraint firstAttribute="trailing" secondItem="gbZ-7W-cVQ" secondAttribute="trailing" id="za0-RQ-3Le"/>
+                    <constraint firstAttribute="trailing" secondItem="uGe-3h-3Bx" secondAttribute="trailing" id="Eu7-3x-Dy7"/>
+                    <constraint firstItem="uGe-3h-3Bx" firstAttribute="top" secondItem="hr1-ci-IOq" secondAttribute="bottom" constant="10" id="M2y-Fv-ggK"/>
+                    <constraint firstItem="uGe-3h-3Bx" firstAttribute="leading" secondItem="5sx-9L-oiS" secondAttribute="leading" id="UBq-Bt-euX"/>
+                    <constraint firstItem="hr1-ci-IOq" firstAttribute="leading" secondItem="5sx-9L-oiS" secondAttribute="leading" id="a3a-se-vdf"/>
+                    <constraint firstAttribute="bottom" secondItem="uGe-3h-3Bx" secondAttribute="bottom" priority="999" id="tya-Fj-yqX"/>
+                    <constraint firstItem="hr1-ci-IOq" firstAttribute="top" secondItem="5sx-9L-oiS" secondAttribute="top" id="vpW-Wl-C8i"/>
+                    <constraint firstAttribute="trailing" secondItem="hr1-ci-IOq" secondAttribute="trailing" id="xp9-LQ-hCO"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -14,3 +14,4 @@ public let WEB_DOMAIN                               = "https://store.musinsa.com
 
 
 public let tabBarHeight                     = 36.0
+public let pageListCellWidth                = (Utils.SCREEN_WIDTH - 40) / 3

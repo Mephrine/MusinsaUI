@@ -45,13 +45,12 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         self.cvTabBar.dataSource = self
         self.cvTabBar.delegate   = self
         self.cvTabBar.register(UINib(nibName: reusableCell, bundle: nil), forCellWithReuseIdentifier: reusableCell)
-        self.cvTabBar.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        
+        self.cvTabBar.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+
         if let flowLayout = cvTabBar.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
-            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumInteritemSpacing = 10
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.estimatedItemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: cvTabBar.bounds.height)
         }
         
         // PageViewController
@@ -60,14 +59,29 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         pageViewController.delegate = self
         pageViewController.dataSource = self
 
-        if let navi = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController, let mainVC = navi.visibleViewController as? MainVC {
-            mainVC.addChild(pageViewController)
-        }
         self.vContainer.addSubview(pageViewController.view)
 
         pageViewController.view.makeConstSuperView()
 
         self.pageVC = pageViewController
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+
+        let pageHeight = (pageListCellWidth + 50) * 2 + 20
+        self.vContainer.constraints.filter{ $0.identifier == "constContainerH" }.first?.constant = pageHeight
+        
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        // 최신으로 반영된 상태의 contentView의 사이즈로 적용.
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+
+        return layoutAttributes
     }
     
     func configure(model: GoodsRankingListModel) {
@@ -77,6 +91,7 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         if let firstVC = self.pageContentsVC.first {
             pageVC?.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
+        
     }
     
     fileprivate func changeViewController(index: Int) -> GoodsRankingListPageVC {
@@ -87,6 +102,25 @@ class GoodsRankingListCell: BaseCollectionViewCell {
     
     func moveTabBar(_ index: Int) {
         
+    }
+}
+
+extension GoodsRankingListCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let index = indexPath.row
+        let font = Utils.Font(.Bold, size: 12)
+        let text = model?.tabNm(index: index) ?? ""
+        let width = self.estimatedFrame(text: text, font: font).width + 31
+        return CGSize(width: width, height: 36.0)
+    }
+
+    func estimatedFrame(text: String, font: UIFont) -> CGRect {
+        let size = CGSize(width: self.cvTabBar.bounds.width, height: 36.0)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: text).boundingRect(with: size,
+                                                   options: options,
+                                                   attributes: [NSAttributedString.Key.font: font],
+                                                   context: nil)
     }
 }
 

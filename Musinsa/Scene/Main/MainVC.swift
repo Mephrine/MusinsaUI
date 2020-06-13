@@ -87,13 +87,13 @@ final class MainVC: BaseVC, ViewControllerProtocol {
         if #available(iOS 11.0, *) {
             cvMain.contentInsetAdjustmentBehavior = .never
         }
-        cvMain.alwaysBounceVertical = false
-        cvMain.bounces = false
+//        cvMain.alwaysBounceVertical = false
+//        cvMain.bounces = false
         
         // flowLayout
         if let flowLayout = cvMain.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumInteritemSpacing = 0.0
-            flowLayout.minimumLineSpacing      = 20
+            flowLayout.minimumLineSpacing      = 0
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
             flowLayout.estimatedItemSize = CGSize.init(width: Utils.SCREEN_WIDTH, height: cvMain.frame.size.height)
         }
