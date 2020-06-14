@@ -67,7 +67,7 @@ class LoadingView: UIView {
      - Returns:
      - Note: 로딩뷰 숨기기
     */
-    public func hide(_ completion: @escaping (() -> Void)) {
+    public func hide(_ completion: (() -> Void)? = nil) {
         loadingCnt -= 1
         if loadingCnt > 0 {
             return
@@ -79,7 +79,7 @@ class LoadingView: UIView {
                 ivLoadingView.removeFromSuperview()
                 
                 self.removeFromSuperview()
-                completion()
+                completion?()
             }
         }
     }

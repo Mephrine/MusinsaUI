@@ -43,6 +43,13 @@ extension UIView {
         self.makeConstHeight(height)
     }
     
+    func makeConstWH(width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        self.makeConstWidth(width)
+        self.makeConstHeight(height)
+    }
+    
     func makeConstEdgeView(target: UIView? = nil, top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0, right: CGFloat = 0) {
         let targetView = target ?? self.superview
         guard let superView = targetView else { return }

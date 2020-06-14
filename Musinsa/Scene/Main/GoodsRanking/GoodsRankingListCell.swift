@@ -86,7 +86,6 @@ class GoodsRankingListCell: BaseCollectionViewCell {
     
     func configure(model: GoodsRankingListModel) {
         self.model = model
-        self.cvTabBar.reloadData()
         
         if let firstVC = self.pageContentsVC.first {
             pageVC?.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
@@ -94,14 +93,30 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         
     }
     
-    fileprivate func changeViewController(index: Int) -> GoodsRankingListPageVC {
+    private func changeViewController(index: Int) -> GoodsRankingListPageVC {
         let viewControler = pageContentsVC[index]
         
         return viewControler
     }
-    
-    func moveTabBar(_ index: Int) {
+  
+    private func movePage(_ index: Int) {
+        guard let pageVC = self.pageVC else { return }
         
+        let nextViewController = pageContentsVC[index]
+        let direction: UIPageViewController.NavigationDirection = (self.model?.moveForward(index) ?? true) ? .forward : .reverse
+        
+        pageVC.setViewControllers([nextViewController], direction: direction, animated: true, completion: { [weak self] completion in
+            if completion {
+                self?.model?.setIndex(index)
+                self?.selectTab(index)
+            }
+        })
+    }
+    
+    private func selectTab(_ index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        self.cvTabBar.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        self.cvTabBar.reloadData()
     }
 }
 
@@ -140,6 +155,13 @@ extension GoodsRankingListCell: UICollectionViewDelegate, UICollectionViewDataSo
         
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        if !(model?.chkEqualIndex(index) ?? true) {
+            self.movePage(index)
+        }
+    }
 }
 
 extension GoodsRankingListCell: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -164,7 +186,7 @@ extension GoodsRankingListCell: UIPageViewControllerDelegate, UIPageViewControll
             if let currentVC = pageViewController.viewControllers?.first {
                 let index = currentVC.view.tag
                 model?.setIndex(index)
-                self.moveTabBar(index)
+                self.selectTab(index)
             }
         }
     }

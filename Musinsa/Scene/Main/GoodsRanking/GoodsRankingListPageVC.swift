@@ -16,21 +16,12 @@ class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
     // viewModel
     var viewModel: GoodsRankingListPageVM?
     
-    //MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     //MARK: - Bind
     override func bind() {
         guard let viewModel = self.viewModel else { return }
         viewModel.item.bind { [weak self] _ in
             self?.cvList.reloadData()
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     //MARK: - e.g.

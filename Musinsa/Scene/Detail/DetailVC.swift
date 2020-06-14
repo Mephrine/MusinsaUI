@@ -24,12 +24,11 @@ class DetailVC: BaseVC, ViewControllerProtocol {
     //MARK: - var
     @IBOutlet weak var vContainer: UIView!
     
-    var strCurUrl = ""                  // 현재 URL
     var isWebPopGesture = true
     
     // 웹뷰 설정
     private var config: WKWebViewConfiguration?
-    private var mWebView: WKWebView?
+    private var webView: WKWebView!
     private var subWebView: WKWebView?
     
     weak var documentPicker: UIDocumentPickerViewController?
@@ -39,6 +38,7 @@ class DetailVC: BaseVC, ViewControllerProtocol {
         initWebView()
         super.viewDidLoad()
         
+        self.viewModel?.requestWebViewURL.value = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,15 +50,20 @@ class DetailVC: BaseVC, ViewControllerProtocol {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        LoadingView.shared.hide(){}
+        LoadingView.shared.hide()
         
         // 영상 관련 노티 제거
         NotificationCenter.default.removeObserver(self, name: UIWindow.didBecomeHiddenNotification, object: nil)
     }
     
     //MARK: - Bind
-    func Bind() {
-        
+    override func bind() {
+        guard let viewModel = self.viewModel else { return }
+        viewModel.loadURL.bind { [weak self] strURL in
+            if let requestURL = strURL {
+                self?.requestWebView(requestURL)
+            }
+        }
     }
     
     //MARK: - Navigation
@@ -76,41 +81,26 @@ class DetailVC: BaseVC, ViewControllerProtocol {
         // WKWebview Delegate 초기화
         
         /// WKWebview Config 초기화
-        if mWebView == nil {
-            if let config = self.config {
-                self.mWebView = WKWebView(frame: CGRect.zero, configuration: config)
-            } else {
-                let config = WKWebViewConfiguration()
-                config.processPool = WKCookieStorage.shared.sharedProcessPool
-                config.preferences.javaScriptEnabled = true
-                config.preferences.javaScriptCanOpenWindowsAutomatically = true
-                config.selectionGranularity = .character
-                // 미디어 관련
-                config.allowsInlineMediaPlayback = true
-                config.allowsPictureInPictureMediaPlayback = true
-                config.selectionGranularity = .character
-                
-                if #available(iOS 10.0, *) {
-                    config.requiresUserActionForMediaPlayback = false
-                    config.mediaTypesRequiringUserActionForPlayback = []
-                }
-                
-                self.config = config
-                self.mWebView = WKWebView(frame: CGRect.zero, configuration: config)
-                
-            }
+        
+        if let config = self.config {
+            self.webView = WKWebView(frame: CGRect.zero, configuration: config)
+        } else {
+            let config = WKWebViewConfiguration()
+            config.processPool = WKCookieStorage.shared.sharedProcessPool
+            config.preferences.javaScriptEnabled = true
+            config.preferences.javaScriptCanOpenWindowsAutomatically = true
+            config.selectionGranularity = .character
+            
+            self.config = config
+            self.webView = WKWebView(frame: CGRect.zero, configuration: config)
         }
         
-        guard let webView = mWebView else {
-            return
-        }
         
         webView.backgroundColor = .white
         webView.scrollView.backgroundColor = .white
         
         webView.scrollView.bounces = isWebBouncing
         
-        // Rx로 변경하기 위해서 주석.
         webView.uiDelegate = self
         webView.navigationDelegate = self
         
@@ -124,14 +114,10 @@ class DetailVC: BaseVC, ViewControllerProtocol {
     }
     
     deinit {
-        LoadingView.shared.hide(){}
-        mWebView?.stopLoading()
-        mWebView?.loadHTMLString("", baseURL: nil)
-        mWebView?.configuration.userContentController = WKUserContentController()
-        mWebView?.uiDelegate = nil
-        mWebView?.navigationDelegate = nil
-        mWebView?.removeFromSuperview()
-        mWebView = nil
+        LoadingView.shared.hide()
+        webView?.stopLoading()
+        webView?.loadHTMLString("", baseURL: nil)
+        webView = nil
     }
     
     
@@ -146,28 +132,23 @@ class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 웹뷰 URL 호출 시 사용되는 함수.
     */
     func requestWebView(_ urlString:String, _ parameters: [String:Any]? = nil) {
-        guard let webView = mWebView else {
-            return
-        }
-        
         if let value = URL(string:urlString) {
-            //            var request = URLRequest(url: value, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
-            var request = URLRequest(url: value)
+            let request = URLRequest(url: value)
             let cookies = HTTPCookieStorage.shared.cookies ?? []
             p("HTTPCookieStorage cookie : \(cookies)")
             
             if cookies.count == 0 {
                 p("setCookie Zero")
                 WKCookieStorage.shared.addAllCookies {
-                    DispatchQueue.main.async {
-                        webView.load(request)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.webView.load(request)
                     }
                 }
             }else{
                 WKCookieStorage.shared.setCookies(cookies: cookies) {
                     p("setCookie success")
-                    DispatchQueue.main.async {
-                        webView.load(request)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.webView.load(request)
                     }
                 }
             }
@@ -183,7 +164,7 @@ class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 마지막에 로드된 URL로 리로드
     */
     func reloadWebView() {
-        self.requestWebView(strCurUrl)
+        self.viewModel?.requestWebViewURL.value = true
     }
     
     
@@ -238,7 +219,7 @@ class DetailVC: BaseVC, ViewControllerProtocol {
     */
     func chkURLError(_ error: Error) {
         if isURLError(error: error) {
-            LoadingView.shared.hide(){}
+            LoadingView.shared.hide()
             self.onErrorCoverView()
             self.showErrorConfirm()
         }
@@ -288,9 +269,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 스크립트 실행 함수.
      */
     func callJavaScriptFunc(_ funcStr: String, completion: ((Any?, Error?) -> Void)? = nil) {
-        guard let webView = mWebView else {
-            return
-        }
         webView.evaluateJavaScript(funcStr, completionHandler: completion)
     }
     
@@ -303,9 +281,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 웹뷰내 에러가 발생한 경우, 웹뷰 내용을 숨기기 위해서 흰색 뷰를 덮어 씌움.
      */
     func onErrorCoverView() {
-        guard let webView = mWebView else {
-            return
-        }
         // 기존에 해당 뷰가 존재하는지 체크.
         let existView: UIView? = self.view.viewWithTag(999)
         if existView != nil {
@@ -329,9 +304,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 웹뷰내 에러가 발생한 경우, 웹뷰 내용을 숨기기 위해서 덮은 흰색 뷰를 제거.
      */
     func onErrorCoverRemoveView() {
-        guard let webView = mWebView else {
-            return
-        }
         // 기존에 해당 뷰가 존재하는지 체크.
         if let existView: UIView? = self.view.viewWithTag(999) {
             existView?.removeFromSuperview()
@@ -364,11 +336,9 @@ class DetailVC: BaseVC, ViewControllerProtocol {
         - Note: window.open으로 생성한 subWebView 메모리 할당 해제하는 함수.
     */
     func deallocSubWebView() {
-        LoadingView.shared.hide() {}
-
+        LoadingView.shared.hide()
         subWebView?.stopLoading()
         subWebView?.loadHTMLString("", baseURL: nil)
-        subWebView?.configuration.userContentController = WKUserContentController()
         subWebView?.uiDelegate = nil
         subWebView?.navigationDelegate = nil
         subWebView?.removeFromSuperview()
@@ -381,12 +351,10 @@ class DetailVC: BaseVC, ViewControllerProtocol {
         - Date: 20.06.10
         - Parameters:
         - Returns:
-        - Note: 딥링크를 통해 웹에서 PopGesture 적용 / 해지하는 함수
+        - Note: PopGesture시 실행되는 함수
     */
-    func popGesture(_ apply: Bool) {
-        self.isWebPopGesture = apply
-        self.setInteractivePopGesture(apply)
-        mWebView?.allowsBackForwardNavigationGestures = apply
+    override func popGesture() {
+        viewModel?.popGesture()
     }
     
     /**
@@ -435,72 +403,24 @@ extension DetailVC: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        let strUrl    = url.absoluteString
-        let strScheme = url.scheme ?? ""
         
-        p("Deep Link strUrl = \(strUrl)")
-        
-        if url.scheme == "http" || url.scheme == "https" {
-            if strUrl.contains("/download") || strUrl.contains("/file/") {
-                if strUrl.contains(".jpg") || strUrl.contains(".png") || strUrl.contains(".jpeg") || strUrl.contains(".gif") {
-                    decisionHandler(.allow)
-                    return
-                } else if strUrl.contains(".hwp") {
-                    Utils.openExternalLink(urlStr: url.absoluteString)
-                } else {
-                    Utils.showSFVC(strURL: url.absoluteString, viewController: self)
-                }
-            } else if let domainHost = URL(string: WEB_DOMAIN)?.host {
-                if strUrl.hasSuffix("#") {
-                    decisionHandler(.cancel)
-                    return
-                }else if url.host == "kapi.kakao.com" {
-                    
-                }else if url.host == "itunes.apple.com" || url.host == "phobos.apple.com" {
-                    Utils.openExternalLink(urlStr: url.absoluteString)
-                }else if url.host?.hasPrefix("sso") ?? false {
-                    
-                }else if url.host == "www.youtube.com"{
-                    if url.path.hasPrefix("/embed/") {
-                        // 유투브 동영상을 iframe으로 embed 시키면 팝업웹뷰로 걸러지는거 방지
-                    }
-                }
-            }
+        if viewModel?.decidePolicyFor(url: url) ?? false {
             decisionHandler(.allow)
-            return
-        } else if strUrl == "about:blank" {
+        } else {
+            LoadingView.shared.hide()
             decisionHandler(.cancel)
-            return
-        } else if strUrl.starts(with: "file://") {
-            decisionHandler(.cancel)
-            return
-        } else if strUrl.starts(with: "tel:") {
-            Utils.openTelNumber(vc: self, urlStr: strUrl)
-            decisionHandler(.cancel)
-            return
-        } else if strUrl.starts(with: "sms:") || strUrl.starts(with: "mailto:") {
-            Utils.openExternalLink(urlStr: strUrl)
-            decisionHandler(.cancel)
-            return
-        }
-        
-        else{
-            // 외부 앱 호출
-            Utils.openExternalLink(urlStr: url.absoluteString)
-            decisionHandler(.cancel)
-            return
         }
     }
     
     @available(iOS 8.0, *)
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        LoadingView.shared.hide{}
+        LoadingView.shared.hide()
     }
     
     @available(iOS 8.0, *)
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         p("스크립트 에러 :  \(error.localizedDescription)")
-        LoadingView.shared.hide{}
+        LoadingView.shared.hide()
     }
 }
 
@@ -520,7 +440,7 @@ extension DetailVC: WKUIDelegate {
      */
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         p("runJavaScriptAlertPanelWithMessage 실행")
-        if let host = webView.url?.host {
+        if webView.url?.host != nil {
             CommonAlert.showAlert(vc: self, message: message, completionHandler)
         } else {
             completionHandler()
@@ -542,7 +462,7 @@ extension DetailVC: WKUIDelegate {
      */
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         p("runJavaScriptConfirmPanelWithMessage 실행")
-        if let host = webView.url?.host {
+        if webView.url?.host != nil {
             CommonAlert.showJSConfirm(vc: self, message: message, completionHandler)
         } else {
             completionHandler(true)
@@ -566,15 +486,16 @@ extension DetailVC: WKUIDelegate {
         
         // window.open 등의 새창을 실행하는 스크립트가 실행되면 해당 부분을 탐.
         // webView를 리턴하면 해당 함수 내부에서 post등의 관련 데이터를 전달하는 것으로 보임. 그래서 request url 로그를 찍으면 nil로 들어옴.
-//        if navigationAction.targetFrame == nil {
-//            if let subWebViewVC = UIStoryboard.init(name: "Web", bundle: nil).instantiateViewController(withIdentifier: "SubWebViewVC") as? SubWebViewVC {
-//                configuration.userContentController = WKUserContentController()
-//                subWebView = WKWebView(frame: CGRect.zero, configuration: configuration)
-//                subWebViewVC.mWebView = subWebView
-//                self.steps.accept(AppStep.goPushSubWebView(subWebViewVC))
-//                return subWebView
-//            }
-//        }
+        if navigationAction.targetFrame == nil {
+            configuration.userContentController = WKUserContentController()
+            subWebView = WKWebView(frame: CGRect.zero, configuration: configuration)
+            self.view.addSubview(subWebView!)
+            subWebView?.makeConstSuperView()
+            subWebView?.uiDelegate = self
+            subWebView?.navigationDelegate = self
+            
+            return subWebView
+        }
         return WKWebView(frame: view.bounds, configuration: configuration)
     }
     
@@ -609,15 +530,6 @@ extension DetailVC: WKUIDelegate {
      */
     @available(iOS 9.0, *)
     func webViewDidClose(_ webView: WKWebView) {
-//        if self.isModal {
-//            if webView.canGoBack {
-//                self.steps.accept(AppStep.backSubWebViewVC)
-//            } else {
-//                self.steps.accept(AppStep.backSubRootWebView)
-//            }
-//        } else {
-//            self.steps.accept(AppStep.backSubWebViewVC)
-//        }
         self.deallocSubWebView()
     }
     
@@ -631,12 +543,12 @@ extension DetailVC: WKUIDelegate {
      - Note: 동영상 종료 후 화면 회전.
      */
     @objc func videoExitFullScreen(_ noti: Notification) {
-//        Async.main(after: 0.3) {
-//            UIDevice.current.setValue(UIInterfaceOrientation.unknown.rawValue, forKey: "orientation")
-//            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-//
-//            self.showStatusAnim()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
+            UIDevice.current.setValue(UIInterfaceOrientation.unknown.rawValue, forKey: "orientation")
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+
+            self.showStatusAnim()
+        })
     }
     
 }

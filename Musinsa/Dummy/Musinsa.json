@@ -38,13 +38,13 @@
         "blue":245,
         "title":"천원 이벤트",
         "subtitle":"무신사 새내기들을 위해 준비한 5월 특급 혜택",
-        "link":" https://store.musinsa.com/app/content/s/usr/membership"
+        "link":"https://store.musinsa.com/app/content/s/usr/membership"
     },
     "rank":{
         "header":{
             "title":"상품 랭킹",
             "timestamp": 1559817960,
-            "link" : "https://m.store.musinsa.com/app/contents/bestranking"
+            "link":"https://m.store.musinsa.com/app/contents/bestranking"
         },
         "all":{
             "name":"전체",

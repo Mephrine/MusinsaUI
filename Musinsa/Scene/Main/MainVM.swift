@@ -11,7 +11,6 @@ import Foundation
 fileprivate protocol MainProtocol {
     //Input
     var requestAPI: Dynamic<Bool> { get set }
-    var linkURL: Dynamic<String?> { get set }
     
     // Output
     var mainData: Dynamic<MainData?> { get set }
@@ -19,14 +18,12 @@ fileprivate protocol MainProtocol {
     
     //func
     func requsetMain()
-    func goDetail(url: String)
 }
 
 final class MainVM: BaseVM, MainProtocol {
     //MARK: - var & typealias
     // Input
     var requestAPI: Dynamic<Bool> = Dynamic(false)
-    var linkURL: Dynamic<String?> = Dynamic(nil)
     
     // Output
     var mainData: Dynamic<MainData?> = Dynamic(nil)
@@ -51,12 +48,6 @@ final class MainVM: BaseVM, MainProtocol {
                 self?.requsetMain()
             }
         }
-        
-        self.linkURL.bind({ [weak self] strUrl in
-            if let url = strUrl {
-                self?.goDetail(url: url)
-            }
-        })
     }
     
     //MARK: - e.g.
@@ -72,10 +63,5 @@ final class MainVM: BaseVM, MainProtocol {
                 break
             }
         }
-    }
-    
-    //MARK: - Navigation
-    func goDetail(url: String) {
-
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct GoodsRankingListModel {
     let item: GoodsRanking
     let navi: Navigator
-    private var index = 0
+    private static var index = 0
     
     var list: [GoodsList] {
         return [item.all, item.top, item.outer, item.pants, item.bag, item.sneakers, item.shoes].sorted{ $0.order < $1.order }
@@ -31,7 +31,7 @@ struct GoodsRankingListModel {
     }
     
     func isSelected(_ index: Int) -> Bool {
-        return self.index == index
+        return GoodsRankingListModel.index == index
     }
     
     func tabItemModel(index: Int) -> GoodsRankingTabItemModel {
@@ -48,37 +48,49 @@ struct GoodsRankingListModel {
     
     // struct라서 value이기 때문에, mutating 사용
     mutating func setIndex(_ index: Int) {
-        self.index = index
+        GoodsRankingListModel.index = index
+    }
+    
+    func chkEqualIndex(_ index: Int) -> Bool {
+        return GoodsRankingListModel.index == index ? true : false
+    }
+    
+    func moveForward(_ index: Int) -> Bool {
+        if GoodsRankingListModel.index < index {
+            return true
+        } else {
+            return false
+        }
     }
     
     func currentIndex() -> Int {
-        return self.index
+        return GoodsRankingListModel.index
     }
     
     //loop
     func beforeLoadIndex() -> Int?  {
-        if( self.index <= 0) {
+        if( GoodsRankingListModel.index <= 0) {
             return self.cnt() - 1
         }
        
-        guard self.cnt() > self.index - 1 else {
+        guard self.cnt() > GoodsRankingListModel.index - 1 else {
             return nil
         }
         
-        return self.index - 1
+        return GoodsRankingListModel.index - 1
     }
     
     //loop
     func afterLoadIndex() -> Int? {
-        if( self.index >= self.cnt() - 1) {
+        if( GoodsRankingListModel.index >= self.cnt() - 1) {
             return  0
         }
         
-        guard self.cnt() > self.index + 1 else {
+        guard self.cnt() > GoodsRankingListModel.index + 1 else {
             return nil
         }
         
-        return self.index + 1
+        return GoodsRankingListModel.index + 1
     }
     
 }

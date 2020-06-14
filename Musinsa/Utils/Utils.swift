@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 /**
  # (C) Utils
@@ -79,47 +78,6 @@ public class Utils {
         } else {
             UIApplication.shared.openURL(url)
             handler?()
-        }
-    }
-    
-    /**
-     # showSFVC
-     - Author: Mephrine
-     - Date: 20.06.09
-     - Parameters:
-        - url : URL 타입 링크
-     - Returns: FlowContributors
-     - Note: SafariVC로 링크 실행.
-     */
-    public static func showSFVC(strURL: String, viewController: UIViewController) {
-        if let url = URL(string: strURL) {
-            let sfVC = SFSafariViewController(url: url)
-            viewController.present(sfVC, animated: true, completion: nil)
-        }
-    }
-    
-    /**
-     # openTelNumber
-     - Author: Mephrine
-     - Date: 20.06.09
-     - Parameters:
-        - urlStr : String 타입 전화번호
-     - Returns:
-     - Note: 전화걸기 알럿 노출 및 전화걸기 Action.
-     */
-    public static func openTelNumber(vc: UIViewController, urlStr: String, _ cancelTitle: String = "취소", _ completeTitle: String = "통화" ) {
-        if #available(iOS 11.0, *) {
-            self.openExternalLink(urlStr: urlStr)
-        } else {
-            if #available(iOS 10.0, *) {
-                if let phoneNumber = urlStr.split(separator: ":").last {
-                    CommonAlert.showConfirm(vc: vc, message: String(phoneNumber), cancelTitle: cancelTitle, completeTitle: completeTitle, nil) {
-                        self.openExternalLink(urlStr: urlStr)
-                    }
-                }
-            } else {
-                self.openExternalLink(urlStr: urlStr)
-            }
         }
     }
 }
