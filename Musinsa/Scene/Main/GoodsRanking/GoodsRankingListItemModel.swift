@@ -38,7 +38,7 @@ struct GoodsRankingListItemModel {
     
     var sale: String {
         if item.sale > 0 {
-            return (String(format: "%.0", item.sale) + "%")
+            return (String(format: "%.0f", item.sale) + "%")
         }
         return ""
     }

@@ -76,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDi-pV-gq4">
-                                <rect key="frame" x="241.5" y="29" width="16.5" height="16"/>
+                                <rect key="frame" x="231.5" y="29" width="16.5" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                             <constraint firstItem="YAX-rB-qQI" firstAttribute="leading" secondItem="MlD-sR-toU" secondAttribute="leading" id="eps-GF-jUs"/>
                             <constraint firstAttribute="trailing" secondItem="YAX-rB-qQI" secondAttribute="trailing" id="eti-RY-fN1"/>
                             <constraint firstAttribute="bottom" secondItem="12N-B3-PX7" secondAttribute="bottom" constant="5" id="rjk-Qw-fDs"/>
-                            <constraint firstAttribute="trailing" secondItem="eDi-pV-gq4" secondAttribute="trailing" id="zSp-GH-h0k"/>
+                            <constraint firstAttribute="trailing" secondItem="eDi-pV-gq4" secondAttribute="trailing" constant="10" id="zSp-GH-h0k"/>
                         </constraints>
                     </view>
                 </subviews>
