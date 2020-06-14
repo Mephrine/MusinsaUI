@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+ # (C) GoodsRankingListPageVC.swift
+ - Author: Mephrine
+ - Date: 20.06.11
+ - Note: 상품 랭킹 리스트 페이지 ViewController
+*/
 class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
     @IBOutlet var cvList: UICollectionView!
     // reusable
@@ -40,8 +46,8 @@ class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
             let height = width + 50
             flowLayout.itemSize = CGSize.init(width: width, height: height)
             flowLayout.estimatedItemSize = .zero
-//            flowLayout.estimatedItemSize = CGSize.init(width: width, height: height)
         }
+        
         self.cvList.delegate = self
         self.cvList.dataSource = self
     }

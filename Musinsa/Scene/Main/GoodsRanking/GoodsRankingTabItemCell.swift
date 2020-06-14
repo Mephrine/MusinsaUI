@@ -17,13 +17,21 @@ import UIKit
 class GoodsRankingTabItemCell: UICollectionViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.clipsToBounds = true
         self.layer.cornerRadius = CGFloat(tabBarHeight / 2)
     }
     
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - model : 해당 셀에서 사용할 Model
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(model: GoodsRankingTabItemModel) {
         self.lbTitle.text = model.tabNm
         

@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) ADBandBanner
+ - Author: Mephrine
+ - Date: 20.06.11
+ - Note: 메인 API 중 광고 띠 배너 데이터 구조체
+*/
 struct ADBandBanner: Codable {
     let image: String
     let red: Float

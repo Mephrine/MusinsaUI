@@ -8,6 +8,12 @@
 
 import UIKit
 
+/**
+ # (P) ViewControllerProtocol
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: 뷰 컨트롤러에서 사용할  것들을 정의한 프로토콜
+*/
 protocol ViewControllerProtocol: class {
     associatedtype ViewModel = BaseVM
     var viewModel: ViewModel? { get set }
@@ -15,6 +21,12 @@ protocol ViewControllerProtocol: class {
     func bind()
 }
 
+/**
+ # (C) BaseVC.swift
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: 모든 뷰컨트롤러가 상속받는 최상위 부모뷰.
+*/
 class BaseVC: UIViewController {
     //MARK: - var
 //    var viewModel: BaseVM?
@@ -28,6 +40,15 @@ class BaseVC: UIViewController {
     //제스쳐 관련 플래그 변수
     private var isPopGesture = true
     private var isPopSwipe = false
+    
+    //MARK: - StatusBar
+    override var prefersStatusBarHidden: Bool {
+        return statusBarShouldBeHidden
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .fade
+    }
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -44,29 +65,6 @@ class BaseVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.setInteractivePopGesture(isViewControllerPopGesture)
-        
-        // fix iOS 11 scroll view bug
-        if #available(iOS 11, *) {
-            if let scrollView = self.view.subviews.first as? UIScrollView {
-                self.scrollViewOriginalContentInsetAdjustmentBehaviorRawValue =
-                    scrollView.contentInsetAdjustmentBehavior.rawValue
-                scrollView.contentInsetAdjustmentBehavior = .never
-            }
-        }
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // fix iOS 11 scroll view bug
-        if #available(iOS 11, *) {
-            if let scrollView = self.view.subviews.first as? UIScrollView,
-                let rawValue = self.scrollViewOriginalContentInsetAdjustmentBehaviorRawValue,
-                let behavior = UIScrollView.ContentInsetAdjustmentBehavior(rawValue: rawValue) {
-                scrollView.contentInsetAdjustmentBehavior = behavior
-            }
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -80,11 +78,27 @@ class BaseVC: UIViewController {
     }
     
     //MARK: - UI
+    /**
+     # initView
+     - Author: Mephrine
+     - Date: 20.06.10
+     - Parameters:
+     - Returns:
+     - Note: ViewController에서 view 초기화 시에 실행할 내용 정의하는 Override용 함수
+    */
     func initView() {
         
     }
     
     //MARK: - Bind
+    /**
+     # bind
+     - Author: Mephrine
+     - Date: 20.06.10
+     - Parameters:
+     - Returns:
+     - Note: ViewController에서 bind할 내용 정의하는 Override용 함수
+    */
     func bind(){
         
     }
@@ -93,22 +107,13 @@ class BaseVC: UIViewController {
     /**
      # popGesture
      - Author: Mephrine
-     - Date: 20.02.10
+     - Date: 20.06.10
      - Parameters:
      - Returns:
      - Note: ViewController에서 PopGesture시에 실행할 내용 정의하는 Override용 함수
     */
     func popGesture() {
         
-    }
-    
-    //MARK: - StatusBar
-    override var prefersStatusBarHidden: Bool {
-        return statusBarShouldBeHidden
-    }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .fade
     }
     
     //MARK: - e.g.
@@ -152,7 +157,8 @@ class BaseVC: UIViewController {
     }
 }
 
-//MARK: -  UIGestureRecognizerDelegate. ViewController PopGesture 사용 / 해제를 위한 delegate 함수를 처리
+//MARK: -  UIGestureRecognizerDelegate.
+// ViewController PopGesture 사용 / 해제를 위한 delegate 함수를 처리
 extension BaseVC: UIGestureRecognizerDelegate {
     internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -177,7 +183,8 @@ extension BaseVC: UIGestureRecognizerDelegate {
     }
 }
 
-//MARK: -  Storyboard & ViewModel로 ViewController 생성하는 용도.
+//MARK: - ViewControllerProtocol Extension
+// Storyboard & ViewModel로 ViewController 생성하는 용도.
 extension ViewControllerProtocol where Self: BaseVC {
     static func instantiate<T> (withViewModel viewModel: T, storyBoardName: String = "Main") -> Self? where T == Self.ViewModel {
         let sb = UIStoryboard.init(name: storyBoardName, bundle: nil)
@@ -187,15 +194,5 @@ extension ViewControllerProtocol where Self: BaseVC {
         }
         
         return nil
-    }
-    
-    static func instantiatee<T> (withViewModel viewModel: T, storyBoardName: String = "Main") -> Self {
-        let sb = UIStoryboard.init(name: storyBoardName, bundle: nil)
-//        if let viewController = sb.instantiateViewController(withIdentifier: String(describing: self)) as? Self {
-//            viewController.viewModel = viewModel
-//            return viewController
-//        }
-        
-        return UIViewController() as! Self
     }
 }

@@ -13,8 +13,6 @@ import WebKit
  # (C) BaseNavigationController.swift
  - Author: Mephrine
  - Date: 20.06.10
- - Parameters:
- - Returns:
  - Note: 네비게이션 컨트롤러에서 공통적으로 사용될 함수가 재정의된 네비게이션 컨트롤러 클래스.
 */
 class BaseNavigationController: UINavigationController {

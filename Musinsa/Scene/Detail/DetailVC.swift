@@ -15,7 +15,7 @@ import WebKit
  - Date: 20.06.10
  - Note: 상세 웹뷰 화면 페이지 ViewController
 */
-class DetailVC: BaseVC, ViewControllerProtocol {
+final class DetailVC: BaseVC, ViewControllerProtocol {
     var viewModel: DetailVM?
     
     //MARK: - let
@@ -65,8 +65,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
             }
         }
     }
-    
-    //MARK: - Navigation
     
     //MARK: - e.g.
     /**
@@ -138,7 +136,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
             p("HTTPCookieStorage cookie : \(cookies)")
             
             if cookies.count == 0 {
-                p("setCookie Zero")
                 WKCookieStorage.shared.addAllCookies {
                     DispatchQueue.main.async { [weak self] in
                         self?.webView.load(request)
@@ -146,7 +143,6 @@ class DetailVC: BaseVC, ViewControllerProtocol {
                 }
             }else{
                 WKCookieStorage.shared.setCookies(cookies: cookies) {
-                    p("setCookie success")
                     DispatchQueue.main.async { [weak self] in
                         self?.webView.load(request)
                     }

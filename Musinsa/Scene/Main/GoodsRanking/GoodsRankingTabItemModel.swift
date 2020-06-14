@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) GoodsRankingTabItemModel.swift
+ - Author: Mephrine
+ - Date: 20.06.11
+ - Note: GoodsRankingTabItem 뷰모델
+*/
 struct GoodsRankingTabItemModel {
     let tabNm: String
     let index: Int

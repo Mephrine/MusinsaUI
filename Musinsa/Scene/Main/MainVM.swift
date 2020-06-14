@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) MainProtocol
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: Main 뷰모델에서 정의해야할 프로토콜
+*/
 fileprivate protocol MainProtocol {
     //Input
     var requestAPI: Dynamic<Bool> { get set }
@@ -20,8 +26,13 @@ fileprivate protocol MainProtocol {
     func requsetMain()
 }
 
+/**
+ # (S) MainVM.swift
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: Main 뷰모델
+*/
 final class MainVM: BaseVM, MainProtocol {
-    //MARK: - var & typealias
     // Input
     var requestAPI: Dynamic<Bool> = Dynamic(false)
     
@@ -29,9 +40,11 @@ final class MainVM: BaseVM, MainProtocol {
     var mainData: Dynamic<MainData?> = Dynamic(nil)
     var errorMsg: Dynamic<CallAPI.APIError> = Dynamic(.none)
     
-    //service
+    // service
     typealias Service = HasMainService
     private var service: Service
+    
+    // 네비게이션
     let navigator: Navigator
     
     init(service: AppService, navigator: Navigator) {

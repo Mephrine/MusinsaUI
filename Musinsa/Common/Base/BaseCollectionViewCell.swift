@@ -12,9 +12,8 @@ import UIKit
  # (C) BaseCollectionViewCell.swift
  - Author: Mephrine
  - Date: 20.06.09
- - Note: 모든 UICollectionView Cell에 공통적으로 적용하기 위한 부모 셀
+ - Note: 모든 UICollectionView Cell에 공통적으로 적용하기 위한 부모 셀 - 셀 높이 유동적으로 적용하기
 */
-
 class BaseCollectionViewCell: UICollectionViewCell {
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 

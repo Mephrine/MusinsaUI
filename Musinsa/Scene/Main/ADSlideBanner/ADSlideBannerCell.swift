@@ -22,6 +22,7 @@ class ADSlideBannerCell: BaseCollectionViewCell {
     var model: ADSlideBannerModel? = nil
     var pageVC: UIPageViewController?
     
+    // 페이지뷰컨트롤러에서 보여질 뷰컨트롤러 리스트
     lazy var pageContentsVC: [ADSlideBannerPageVC] = {
         var arrContentsVC = [ADSlideBannerPageVC]()
         for index in 0 ..< (model?.cnt() ?? 0) {
@@ -52,6 +53,15 @@ class ADSlideBannerCell: BaseCollectionViewCell {
         self.pageVC = pageViewController
     }
     
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - model : 해당 셀에서 사용할 Model
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(model: ADSlideBannerModel) {
         self.model = model
         if let firstVC = self.pageContentsVC.first {
@@ -66,11 +76,28 @@ class ADSlideBannerCell: BaseCollectionViewCell {
     }
     
     //MARK : - Action
+    /**
+    # tapBtnNext
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - sender : 버튼 sender
+    - Returns:
+    - Note: 다음 페이지로 이동
+    */
     @IBAction func tapBtnNext(_ sender: Any) {
         self.moveNextPage()
     }
     
     //MARK: - e.g.
+    /**
+    # moveNextPage
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+    - Returns:
+    - Note: 다음 페이지로 이동
+    */
     fileprivate func moveNextPage() {
         guard let pageVC = self.pageVC,
             let currentViewController = pageVC.viewControllers?.first,
@@ -86,6 +113,15 @@ class ADSlideBannerCell: BaseCollectionViewCell {
         })
     }
     
+    /**
+    # changeViewController
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - index : 이동할 페이지
+    - Returns: ADSlideBannerPageVC
+    - Note: index 페이지의 뷰컨트롤러 반환
+    */
     fileprivate func changeViewController(index: Int) -> ADSlideBannerPageVC {
         let viewControler = pageContentsVC[index]
         if let strURL = model?.item[index].image {

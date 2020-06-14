@@ -8,13 +8,12 @@
 
 import UIKit
 
-protocol ViewModelProtocol {
-    associatedtype Input
-    associatedtype Output
-    
-    func transform(input: Input?) -> Output
-}
-
+/**
+ # (C) BaseVM.swift
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: 모든 뷰 모델이 상속받는 최상위 부모뷰.
+*/
 class BaseVM {
     
 }

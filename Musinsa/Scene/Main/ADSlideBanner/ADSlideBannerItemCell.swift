@@ -27,6 +27,15 @@ class ADSlideBannerItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.12
+    - Parameters:
+     - url : 배너 이미지 URL
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(_ url: URL) {
         self.ivBanner.kf.setImage(with: url)
     }

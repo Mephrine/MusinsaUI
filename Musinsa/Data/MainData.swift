@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) MainData
+ - Author: Mephrine
+ - Date: 20.06.11
+ - Note: 메인 API를 통해 받아온 데이터를 파싱해서 담는 구조체
+*/
 struct MainData: Codable {
     let slideBanner: [ADSlideBanner]?
     let bandBanner: ADBandBanner?

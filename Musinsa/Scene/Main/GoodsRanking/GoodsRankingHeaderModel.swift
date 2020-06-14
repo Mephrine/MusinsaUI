@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) GoodsRankingHeaderModel.swift
+ - Author: Mephrine
+ - Date: 20.06.11
+ - Note: GoodsRankingHeader 뷰모델
+*/
 struct GoodsRankingHeaderModel {
     let item: GoodsHeader
     let navi: Navigator
@@ -30,5 +36,18 @@ struct GoodsRankingHeaderModel {
     init(item: GoodsHeader, navigator: Navigator) {
         self.item = item
         self.navi = navigator
+    }
+    
+    //MARK: - Navigation
+    /**
+    # goDetail
+    - Author: Mephrine
+    - Date: 20.06.11
+    - Parameters:
+    - Returns:
+    - Note: 상세화면으로 이동
+    */
+    func goDetail() {
+        self.navi.goDetail(url: linkURL)
     }
 }

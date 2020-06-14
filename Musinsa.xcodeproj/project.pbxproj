@@ -31,7 +31,6 @@
 		03B2DB0E248FCF8A00D8F812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B2DB0C248FCF8A00D8F812 /* LaunchScreen.storyboard */; };
 		03B2DB1A248FD27F00D8F812 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB19248FD27F00D8F812 /* Utils.swift */; };
 		03B2DB1E248FD35800D8F812 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB1B248FD35800D8F812 /* UIViewController+Ext.swift */; };
-		03B2DB1F248FD35800D8F812 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB1C248FD35800D8F812 /* Date+Ext.swift */; };
 		03B2DB26248FD3CE00D8F812 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB25248FD3CE00D8F812 /* MainVM.swift */; };
 		03B2DB2D248FD6CA00D8F812 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB2C248FD6CA00D8F812 /* DetailVC.swift */; };
 		03B2DB2F248FD6D200D8F812 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB2E248FD6D200D8F812 /* DetailVM.swift */; };
@@ -110,7 +109,6 @@
 		03B2DB0F248FCF8A00D8F812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03B2DB19248FD27F00D8F812 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		03B2DB1B248FD35800D8F812 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		03B2DB1C248FD35800D8F812 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		03B2DB25248FD3CE00D8F812 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		03B2DB2C248FD6CA00D8F812 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		03B2DB2E248FD6D200D8F812 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 		03B2DB18248FD17A00D8F812 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				03B2DB1C248FD35800D8F812 /* Date+Ext.swift */,
 				03B2DB1B248FD35800D8F812 /* UIViewController+Ext.swift */,
 				03B2DB43248FDCAD00D8F812 /* UIColor+Ext.swift */,
 				03B2DB45248FDCF400D8F812 /* Data+Ext.swift */,
@@ -512,7 +509,6 @@
 				03B2DB4B248FDEF300D8F812 /* ADSlideBannerCell.swift in Sources */,
 				03F110092492397A0074BD83 /* MainService.swift in Sources */,
 				0350A7BA2493E6BF00362B8F /* ADSlideBannerPageVM.swift in Sources */,
-				03B2DB1F248FD35800D8F812 /* Date+Ext.swift in Sources */,
 				034F1F81249190790069349D /* GoodsRanking.swift in Sources */,
 				03B2DB51248FDFBE00D8F812 /* GoodsRankingListCell.swift in Sources */,
 				03B2DB42248FDC7D00D8F812 /* CommonAlert.swift in Sources */,

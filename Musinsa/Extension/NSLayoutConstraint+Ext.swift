@@ -9,17 +9,44 @@
 import UIKit
 
 extension NSLayoutConstraint {
+    /**
+    # addIdAndActive
+    - Author: Mephrine
+    - Date: 20.06.11
+    - Parameters:
+        - id: NSLayoutConstraint identifier
+    - Returns: NSLayoutConstraint
+    - Note: identifier 지정 및 활성화
+    */
     func addIdAndActive(_ id: String) -> NSLayoutConstraint {
         self.identifier = id
         self.isActive = true
         return self
     }
     
+    /**
+    # setPriority
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - value : 우선순위
+    - Returns:
+    - Note: NSLayoutConstraint 우선순위 지정
+    */
     func setPriority(_ value: Float?) {
         guard value != nil else { return }
         self.priority = .init(rawValue: value!)
     }
     
+    /**
+    # reamkeMultiplier
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - multiplier : multiplier 값
+    - Returns: NSLayoutConstraint
+    - Note: NSLayoutConstraint multiplier 지정
+    */
     func reamkeMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
         NSLayoutConstraint.deactivate([self])
         let newConstraint = NSLayoutConstraint(item: self.firstItem,

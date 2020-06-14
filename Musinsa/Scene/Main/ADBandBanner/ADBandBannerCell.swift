@@ -21,6 +21,15 @@ class ADBandBannerCell: BaseCollectionViewCell {
     
     var model: ADBandBannerModel? = nil
     
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - model : 해당 셀에서 사용할 Model
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(model: ADBandBannerModel) {
         self.model = model
         self.lbTitle.text = model.title
@@ -29,6 +38,14 @@ class ADBandBannerCell: BaseCollectionViewCell {
         self.ivBanner.kf.setImage(with: model.imageURL)
     }
     
+    /**
+    # tapBtnBanner
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+    - Returns:
+    - Note: 현재 페이지를 클릭했을 때 실행되는 함수
+    */
     @IBAction func tapBtnBanner(_ sender: Any) {
         model?.goDetail()
     }

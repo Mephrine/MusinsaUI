@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) DetailProtocol
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: Detail 뷰모델에서 정의해야할 프로토콜
+*/
 fileprivate protocol DetailProtocol {
     //Input
     var requestWebViewURL: Dynamic<Bool> { get set }
@@ -16,6 +22,12 @@ fileprivate protocol DetailProtocol {
     var loadURL: Dynamic<String?> { get set }
 }
 
+/**
+ # (S) DetailVM.swift
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: Detail 뷰모델
+*/
 final class DetailVM: BaseVM {
     // navigator
     private let navigator: Navigator
@@ -46,22 +58,13 @@ final class DetailVM: BaseVM {
         }
     }
     
-    @objc func tapBtnBack() {
-        navigator.backToMain()
-    }
-    
-    func popGesture() {
-        navigator.hideNavigationBar()
-    }
-    
+    //MARK: - e.g.
     func setCurrentURL(_ strURL: String) {
         self.currentURL = strURL
     }
     
     func decidePolicyFor(url: URL) -> Bool {
         let strUrl    = url.absoluteString
-        p("Link strUrl = \(strUrl)")
-        p("host = \(url.host)")
         
         if url.scheme == "http" || url.scheme == "https" {
             if strUrl.contains("/download") || strUrl.contains("/file/") {
@@ -101,5 +104,14 @@ final class DetailVM: BaseVM {
             Utils.openExternalLink(urlStr: url.absoluteString)
             return true
         }
+    }
+    
+    //MARK: - Navigation
+    @objc func tapBtnBack() {
+        navigator.backToMain()
+    }
+    
+    func popGesture() {
+        navigator.hideNavigationBar()
     }
 }

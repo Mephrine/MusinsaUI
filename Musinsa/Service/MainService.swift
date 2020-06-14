@@ -8,10 +8,22 @@
 
 import Foundation
 
+/**
+ # (P) HasMainService
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: Main Service를 사용하는지에 대한 여부
+*/
 protocol HasMainService {
     var mainService: MainService { get }
 }
 
+/**
+ # (C) MainService
+ - Author: Mephrine
+ - Date: 20.06.09
+ - Note: 메인 API 관련 서비스
+*/
 class MainService {
     // MARK: - API List
     /**

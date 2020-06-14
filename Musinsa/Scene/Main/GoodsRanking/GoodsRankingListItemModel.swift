@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+ # (S) GoodsRankingListItemModel.swift
+ - Author: Mephrine
+ - Date: 20.06.12
+ - Note: GoodsRankingListItem 뷰모델
+*/
 struct GoodsRankingListItemModel {
     let item: GoodsListItem
     
@@ -27,12 +33,12 @@ struct GoodsRankingListItemModel {
     }
     
     var price: String {
-        return item.price.toPrice + "원"
+        return (item.price.toPrice + "원")
     }
     
     var sale: String {
         if item.sale > 0 {
-            String(format: "%.0", item.sale) + "%"
+            return (String(format: "%.0", item.sale) + "%")
         }
         return ""
     }

@@ -11,7 +11,7 @@ import Foundation
 /**
  # (C) CallAPI.swift
  - Author: Mephrine
- - Date: 20.05.28
+ - Date: 20.06.10
  - Note: 네트워크 통신 관련된 내용이 정리된 클래스
 */
 class CallAPI {
@@ -19,7 +19,7 @@ class CallAPI {
     /**
      # (E) path
      - Author: Mephrine
-     - Date: 20.05.28
+     - Date: 20.06.10
      - Note: 사용되는 API Path와 관련 정보
     */
     fileprivate enum path {
@@ -37,7 +37,7 @@ class CallAPI {
     /**
      # (E) APIError
      - Author: Mephrine
-     - Date: 20.05.28
+     - Date: 20.06.10
      - Note: API Error 정보
     */
     enum APIError: Error {
@@ -72,15 +72,13 @@ class CallAPI {
     
     // MARK: - API List
     /**
-     # getCurrentWeather
+     # mainData
      - Author: Mephrine
-     - Date: 20.05.28
+     - Date: 20.06.10
      - Parameters:
-        - lat : 위도
-        - lon : 경도
         - completeion : 결과값 Closure
      - Returns:
-     - Note: 현재 날씨 API 조회 및 결과값 반환
+     - Note: Dummy Json 메인 데이터 조회
     */
     func mainData(_ completion: @escaping (Result<MainData, APIError>) -> Void) {
         do {

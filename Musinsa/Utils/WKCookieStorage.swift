@@ -238,7 +238,6 @@ final class WKCookieStorage: NSObject {
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateFormatter.dateFormat = "EEE, d MMM yyyy HH:mm:ss zzz"
         
-        p("cookies : \(cookies)")
         if cookies.count > 0 {
             for cookie in cookies {
                 result += "document.cookie='\(cookie.name)=\(cookie.value); domain=\(cookie.domain); path=\(cookie.path); "

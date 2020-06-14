@@ -13,7 +13,7 @@ class CommonAlert {
     /**
      # showAlert
      - Author: Mephrine
-     - Date: 20.06.09
+     - Date: 20.06.10
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
      - title: 알럿 타이틀명
@@ -41,7 +41,7 @@ class CommonAlert {
     /**
      # showConfirm
      - Author: Mephrine
-     - Date: 20.06.09
+     - Date: 20.06.10
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
      - title: 알럿 타이틀명
@@ -74,7 +74,7 @@ class CommonAlert {
     /**
      # showJSConfirm
      - Author: Mephrine
-     - Date: 20.06.09
+     - Date: 20.06.10
      - Parameters:
      - vc: 알럿을 띄울 뷰컨트롤러
      - title: 알럿 타이틀명

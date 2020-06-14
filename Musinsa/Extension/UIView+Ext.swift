@@ -31,6 +31,24 @@ extension UIView {
     var centerX: CGFloat { return self.center.x }
     var centerY: CGFloat { return self.center.y }
     
+    /**
+    # makeConst
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - top : topAnchor
+        - paddingTop : topAnchor 값
+        - bottom : bottomAnchor
+        - paddingBottom : bottomAnchor 값
+        - left : leftAnchor
+        - paddingLeft : leftAnchor 값
+        - right : rightAnchor
+        - paddingRight : rightAnchor 값
+        - width : 너비 값
+        - height : 높이 값
+    - Returns:
+    - Note: NSLayoutConstraint 지정
+    */
     func makeConst(top: NSLayoutYAxisAnchor?, paddingTop: CGFloat = 0, bottom: NSLayoutYAxisAnchor?, paddingBottom: CGFloat = 0, left: NSLayoutXAxisAnchor?, paddingLeft: CGFloat = 0, right: NSLayoutXAxisAnchor?, paddingRight: CGFloat = 0, width: CGFloat, height: CGFloat) {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +61,16 @@ extension UIView {
         self.makeConstHeight(height)
     }
     
+    /**
+    # makeConstWH
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - width : 너비 값
+        - height : 높이 값
+    - Returns:
+    - Note: NSLayoutConstraint 너비/높이 지정
+    */
     func makeConstWH(width: CGFloat, height: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,6 +78,19 @@ extension UIView {
         self.makeConstHeight(height)
     }
     
+    /**
+    # makeConstEdgeView
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - target: 대상 뷰
+        - top : topAnchor
+        - bottom : bottomAnchor
+        - left : leftAnchor
+        - right : rightAnchor
+    - Returns:
+    - Note: 대상 뷰를 기준으로 NSLayoutConstraint 지정
+    */
     func makeConstEdgeView(target: UIView? = nil, top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0, right: CGFloat = 0) {
         let targetView = target ?? self.superview
         guard let superView = targetView else { return }
@@ -63,10 +104,38 @@ extension UIView {
         
     }
     
+    /**
+    # makeConstSuperView
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - top : topAnchor
+        - bottom : bottomAnchor
+        - left : leftAnchor
+        - right : rightAnchor
+    - Returns:
+    - Note: 현재 뷰의 superView를 기준으로 NSLayoutConstraint 지정
+    */
     func makeConstSuperView(top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0, right: CGFloat = 0) {
         self.makeConstEdgeView(top: top, bottom: bottom, left: left, right: right)
     }
     
+    /**
+    # makeConstAspectSuperView
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - top : topAnchor 값
+        - bottom : bottomAnchor 값
+        - left : leftAnchor 값
+        - right : rightAnchor 값
+        - widthAspect1 : 너비 값1
+        - widthAspect2 : 너비 값2
+        - heightAspect1 : 높이 값1
+        - heightAspect2 : 높이 값2
+    - Returns:
+    - Note: 너비 1, 2 및 높이 1, 2를 비율로 constraints 지정
+    */
     func makeConstAspectSuperView(top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0, right: CGFloat = 0,  widthAspect1: CGFloat = 0, widthAspect2: CGFloat = 0, heightAspect1: CGFloat = 0, heightAspect2: CGFloat = 0) {
         
         self.makeConstEdgeView(top: top, bottom: bottom, left: left, right: right)
@@ -74,6 +143,15 @@ extension UIView {
         self.makeConstAspectRatioHeight(heightAspect1, heightAspect2)
     }
     
+    /**
+    # makeConstCenter
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - target : target 뷰
+    - Returns:
+    - Note: 타겟 뷰를 기준으로 CenterX/Y constraints 지정
+    */
     func makeConstCenter(target: UIView? = nil) {
         let targetView = target ?? self.superview
         guard let superView = targetView else { return }
@@ -85,6 +163,19 @@ extension UIView {
     }
     
     
+    /**
+    # setConst
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - identifier : 지정할 identifer
+        - anchor : 지정할 anchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 constraints 적용
+    */
     func setConst<T>(_ identifier: String, _ anchor: T , _ padding: CGFloat, _ symbol: Symbol, _ priority: Float? = 1000) {
         if let anchorY = anchor as? NSLayoutYAxisAnchor {
             switch symbol {
@@ -189,124 +280,319 @@ extension UIView {
         }
     }
     
+    /**
+    # makeConstCenterX
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - centerX : centerX anchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 centerX constraints 적용
+    */
     func makeConstCenterX(_ centerX: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         if let centerX = centerX {
             setConst("constCenterX", centerX, padding, symbol ?? .equal, priority)
         }
     }
     
+    /**
+    # makeConstCenterY
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - centerY : centerY anchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 centerY constraints 적용
+    */
     func makeConstCenterY(_ centerY: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         if let centerY = centerY {
             setConst("constCenterY", centerY, padding, symbol ?? .equal, priority)
         }
     }
     
-    func makeConstTop(_ top: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
+    /**
+    # makeConstTop
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - top : topAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 top constraints 적용
+    */
+    func makeConstTop(_ top: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         if let top = top {
-            setConst("constTop", top, padding, symbol ?? .equal)
+            setConst("constTop", top, padding, symbol ?? .equal, priority)
         }
     }
     
-    func remakeConstTop(_ top: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
+    /**
+    # remakeConstTop
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - top : topAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 top constraints 재적용
+    */
+    func remakeConstTop(_ top: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         self.constraintWithIdentifier("constTop")?.isActive = false
-        self.makeConstTop(top, padding, symbol)
+        self.makeConstTop(top, padding, symbol, priority: priority)
     }
     
+    /**
+    # makeConstBottom
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : bottomAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 bottom constraints 적용
+    */
     func makeConstBottom(_ bottom: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
          if let bottom = bottom {
             setConst("constBottom", bottom, -padding, symbol ?? .equal, priority)
         }
     }
     
-    func remakeConstBottom(_ bottom: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
+    /**
+    # makeConstBottom
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : bottomAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 bottom constraints 재적용
+    */
+    func remakeConstBottom(_ bottom: NSLayoutYAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         self.constraintWithIdentifier("constBottom")?.isActive = false
         self.makeConstBottom(bottom, padding)
     }
     
-    func makeConstLeft(_ left: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
+    /**
+    # makeConstLeft
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : leftAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 left constraints 적용
+    */
+    func makeConstLeft(_ left: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         if let left = left {
-            setConst("constLeft", left, padding, symbol ?? .equal)
+            setConst("constLeft", left, padding, symbol ?? .equal, priority)
         }
     }
     
-    func remakeConstLeft(_ left: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
+    /**
+    # remakeConstLeft
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : leftAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 left constraints 재적용
+    */
+    func remakeConstLeft(_ left: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         self.constraintWithIdentifier("constLeft")?.isActive = false
-        self.makeConstLeft(left, padding)
-    }
-    
-    func makeConstRight(_ right: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
-        if let right = right {
-            setConst("constRight", right, -padding, symbol ?? .equal)
-        }
-    }
-    
-    func remakeConstRight(_ right: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal) {
-        self.constraintWithIdentifier("constRight")?.isActive = false
-        self.makeConstRight(right, padding)
-    }
-    
-    func makeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal) {
-        if width != 0 {
-            setConst("constWidth", widthAnchor, width, symbol ?? .equal)
-        }
-    }
-    
-    func remakeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal) {
-        self.constraintWithIdentifier("constWidth")?.isActive = false
-        self.makeConstWidth(width)
-    }
-    
-    func makeConstHeight(_ height: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
-        if height != 0 {
-            setConst("constHeight", heightAnchor, height, symbol ?? .equal)
-        }
-    }
-    
-    func remakeConstHeight(_ height: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
-        self.constraintWithIdentifier("constHeight")?.isActive = false
-        self.makeConstHeight(height, priority: priority)
-    }
-    
-    func makeConstAspectRatioWidth(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal) {
-        if aspect1 != 0, aspect2 != 0 {
-            setConst("constAspectWidth", widthAnchor, aspect1 / aspect2, symbol ?? .equal)
-        }
-    }
-    
-    func remakeConstAspectRatioWidth(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal) {
-        self.constraintWithIdentifier("constAspectWidth")?.isActive = false
-        self.makeConstAspectRatioWidth(aspect1, aspect2)
-    }
-    
-    func makeConstAspectRatioHeight(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal) {
-        if aspect1 != 0, aspect2 != 0 {
-            setConst("constAspectHeight", heightAnchor, aspect1 / aspect2, symbol ?? .equal)
-        }
-    }
-    
-    func remakeConstAspectRatioHeight(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal) {
-        self.constraintWithIdentifier("constAspectHeight")?.isActive = false
-        self.makeConstAspectRatioHeight(aspect1, aspect2)
+        self.makeConstLeft(left, padding, symbol, priority: priority)
     }
     
     
     /**
-     # viewWithIdentifier
-     - Author: Mephrine
-     - Date: 20.02.07
-     - Parameters:
-         - identifier: 뷰의 identifier
-     - Returns: UIView?
-     - Note: 현재 뷰 안에서 identifier값으로 뷰를 찾아서 반환
+    # makeConstRight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : rightAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 right constraints 적용
     */
-    func viewWithIdentifier(_ identifier: String) -> UIView? {
-        if identifier == accessibilityIdentifier { return self }
-        for v in subviews {
-            let sub = v.viewWithIdentifier(identifier)
-            if sub != nil { return sub }
+    func makeConstRight(_ right: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        if let right = right {
+            setConst("constRight", right, -padding, symbol ?? .equal, priority)
         }
-        return nil
     }
+    
+    /**
+    # remakeConstRight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - bottom : rightAnchor
+        - padding : 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 right constraints 재적용
+    */
+    func remakeConstRight(_ right: NSLayoutXAxisAnchor?, _ padding: CGFloat = 0, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        self.constraintWithIdentifier("constRight")?.isActive = false
+        self.makeConstRight(right, padding, symbol, priority: priority)
+    }
+    
+    /**
+    # makeConstWidth
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - width : 너비 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 width constraints 적용
+    */
+    func makeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        if width != 0 {
+            setConst("constWidth", widthAnchor, width, symbol ?? .equal, priority)
+        }
+    }
+    
+    /**
+    # remakeConstWidth
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - width : 너비 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 width constraints 재적용
+    */
+    func remakeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        self.constraintWithIdentifier("constWidth")?.isActive = false
+        self.makeConstWidth(width, symbol, priority: priority)
+    }
+    
+    /**
+    # makeConstHeight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - height : 높이 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 height constraints 적용
+    */
+    func makeConstHeight(_ height: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        if height != 0 {
+            setConst("constHeight", heightAnchor, height, symbol ?? .equal, priority)
+        }
+    }
+    
+    /**
+    # remakeConstHeight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - height : 높이 값
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 height constraints 재적용
+    */
+    func remakeConstHeight(_ height: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        self.constraintWithIdentifier("constHeight")?.isActive = false
+        self.makeConstHeight(height, symbol, priority: priority)
+    }
+    
+    /**
+    # makeConstAspectRatioWidth
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - aspect1 : width 값 1
+        - aspect2 : width 값 2
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 width1, width2 비율로 constraints 적용
+    */
+    func makeConstAspectRatioWidth(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        if aspect1 != 0, aspect2 != 0 {
+            setConst("constAspectWidth", widthAnchor, aspect1 / aspect2, symbol ?? .equal, priority)
+        }
+    }
+    
+    /**
+       # remakeConstAspectRatioWidth
+       - Author: Mephrine
+       - Date: 20.06.10
+       - Parameters:
+           - aspect1 : width 값 1
+           - aspect2 : width 값 2
+           - symbol : symbol
+           - priority : 우선순위
+       - Returns:
+       - Note: 파라미터값들로 width1, width2 비율로 constraints 재적용
+       */
+    func remakeConstAspectRatioWidth(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        self.constraintWithIdentifier("constAspectWidth")?.isActive = false
+        self.makeConstAspectRatioWidth(aspect1, aspect2, symbol, priority: priority)
+    }
+    
+    /**
+    # makeConstAspectRatioHeight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - aspect1 : height 값 1
+        - aspect2 : height 값 2
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 height1, height2 비율로 constraints 적용
+    */
+    func makeConstAspectRatioHeight(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        if aspect1 != 0, aspect2 != 0 {
+            setConst("constAspectHeight", heightAnchor, aspect1 / aspect2, symbol ?? .equal, priority)
+        }
+    }
+    
+    /**
+    # remakeConstAspectRatioHeight
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+        - aspect1 : height 값 1
+        - aspect2 : height 값 2
+        - symbol : symbol
+        - priority : 우선순위
+    - Returns:
+    - Note: 파라미터값들로 height1, height2 비율로 constraints 재적용
+    */
+    func remakeConstAspectRatioHeight(_ aspect1: CGFloat, _ aspect2: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+        self.constraintWithIdentifier("constAspectHeight")?.isActive = false
+        self.makeConstAspectRatioHeight(aspect1, aspect2, symbol, priority: priority)
+    }
+    
     
     /**
      # constraintWithIdentifier

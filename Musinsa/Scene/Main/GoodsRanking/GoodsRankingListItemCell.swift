@@ -16,7 +16,15 @@ class GoodsRankingListItemCell: UICollectionViewCell {
     @IBOutlet weak var lbDiscount: UILabel!
     @IBOutlet weak var vCoupon: UIView!
     
-    
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.12
+    - Parameters:
+     - model : 해당 셀에서 사용할 Model
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(model: GoodsRankingListItemModel) {
         self.lbRank.text = model.rank
         self.lbName.text = model.name

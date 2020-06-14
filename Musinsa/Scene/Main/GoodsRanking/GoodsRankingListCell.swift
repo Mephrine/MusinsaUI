@@ -18,11 +18,12 @@ class GoodsRankingListCell: BaseCollectionViewCell {
     @IBOutlet weak var cvTabBar: UICollectionView!
     @IBOutlet weak var vContainer: UIView!
     
-    var pageVC: UIPageViewController?
-    
     //let
     let reusableCell = "GoodsRankingTabItemCell"
+    
+    var pageVC: UIPageViewController?
     var model: GoodsRankingListModel? = nil
+    
     lazy var pageContentsVC: [GoodsRankingListPageVC] = {
         var arrContentsVC = [GoodsRankingListPageVC]()
         for index in 0 ..< (model?.cnt() ?? 0) {
@@ -84,6 +85,15 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         return layoutAttributes
     }
     
+    /**
+    # configure
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - model : 해당 셀에서 사용할 Model
+    - Returns:
+    - Note: 셀에 데이터 적용
+    */
     func configure(model: GoodsRankingListModel) {
         self.model = model
         
@@ -93,12 +103,30 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         
     }
     
+    /**
+     # changeViewController
+     - Author: Mephrine
+     - Date: 20.06.10
+     - Parameters:
+        - index : 이동할 페이지
+     - Returns: ADSlideBannerPageVC
+     - Note: index 페이지의 뷰컨트롤러 반환
+     */
     private func changeViewController(index: Int) -> GoodsRankingListPageVC {
         let viewControler = pageContentsVC[index]
         
         return viewControler
     }
   
+    /**
+       # movePage
+       - Author: Mephrine
+       - Date: 20.06.10
+       - Parameters:
+        - index : 이동할 페이지
+       - Returns:
+       - Note: index 페이지로 이동
+       */
     private func movePage(_ index: Int) {
         guard let pageVC = self.pageVC else { return }
         
@@ -113,6 +141,15 @@ class GoodsRankingListCell: BaseCollectionViewCell {
         })
     }
     
+    /**
+    # movePage
+    - Author: Mephrine
+    - Date: 20.06.10
+    - Parameters:
+     - index : 선택한 탭 index
+    - Returns:
+    - Note: 탭 선택 시 실행되는 함수
+    */
     private func selectTab(_ index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         self.cvTabBar.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
@@ -158,7 +195,7 @@ extension GoodsRankingListCell: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
-        if !(model?.chkEqualIndex(index) ?? true) {
+        if !(model?.isSelected(index) ?? true) {
             self.movePage(index)
         }
     }
