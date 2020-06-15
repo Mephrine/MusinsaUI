@@ -11,27 +11,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ADBandBannerCell" id="hKo-zE-yk0" customClass="ADBandBannerCell" customModule="Musinsa" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="641" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="AcM-XP-5em">
-                <rect key="frame" x="0.0" y="0.0" width="641" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SV1-UW-BOJ">
-                        <rect key="frame" x="20" y="0.0" width="601" height="60"/>
+                        <rect key="frame" x="20" y="0.0" width="374" height="60"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qy3-0P-kLB">
-                                <rect key="frame" x="15" y="15" width="5.5" height="30"/>
+                                <rect key="frame" x="15" y="15.5" width="244" height="29"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLK-8A-R43">
-                                        <rect key="frame" x="0.0" y="0.0" width="5.5" height="17"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLK-8A-R43">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="TxK-Wh-Z5z">
-                                        <rect key="frame" x="0.0" y="22" width="5.5" height="8"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="TxK-Wh-Z5z">
+                                        <rect key="frame" x="0.0" y="15.5" width="244" height="13.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="11"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -41,20 +41,20 @@
                                     <constraint firstItem="TxK-Wh-Z5z" firstAttribute="leading" secondItem="qy3-0P-kLB" secondAttribute="leading" id="2Hn-lt-XQh"/>
                                     <constraint firstItem="xLK-8A-R43" firstAttribute="top" secondItem="qy3-0P-kLB" secondAttribute="top" id="5Aw-9a-yDR"/>
                                     <constraint firstItem="xLK-8A-R43" firstAttribute="leading" secondItem="qy3-0P-kLB" secondAttribute="leading" id="9dz-Dp-C0k"/>
-                                    <constraint firstItem="TxK-Wh-Z5z" firstAttribute="top" secondItem="xLK-8A-R43" secondAttribute="bottom" constant="5" id="UR3-tu-3Nz"/>
+                                    <constraint firstItem="TxK-Wh-Z5z" firstAttribute="top" secondItem="xLK-8A-R43" secondAttribute="bottom" constant="1" id="UR3-tu-3Nz"/>
                                     <constraint firstAttribute="trailing" secondItem="TxK-Wh-Z5z" secondAttribute="trailing" id="fbt-nP-YUo"/>
                                     <constraint firstAttribute="trailing" secondItem="xLK-8A-R43" secondAttribute="trailing" id="hc3-nd-1hX"/>
                                     <constraint firstAttribute="bottom" secondItem="TxK-Wh-Z5z" secondAttribute="bottom" id="vgU-fO-boC"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-Rz-Fbc">
-                                <rect key="frame" x="486" y="0.0" width="115" height="60"/>
+                                <rect key="frame" x="259" y="0.0" width="115" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yQL-Rz-Fbc" secondAttribute="height" multiplier="230:120" id="VsL-gP-p44"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDH-c1-8It">
-                                <rect key="frame" x="0.0" y="0.0" width="601" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="tapBtnBanner:" destination="hKo-zE-yk0" eventType="touchUpInside" id="eT8-A0-Txy"/>
@@ -65,14 +65,14 @@
                         <constraints>
                             <constraint firstItem="dDH-c1-8It" firstAttribute="leading" secondItem="SV1-UW-BOJ" secondAttribute="leading" id="4GF-sx-ZeH"/>
                             <constraint firstAttribute="trailing" secondItem="dDH-c1-8It" secondAttribute="trailing" id="5ZG-9v-gHo"/>
-                            <constraint firstItem="qy3-0P-kLB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SV1-UW-BOJ" secondAttribute="top" constant="15" id="Ac8-Wc-kPn"/>
-                            <constraint firstItem="yQL-Rz-Fbc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qy3-0P-kLB" secondAttribute="trailing" id="GbU-1y-oHp"/>
-                            <constraint firstAttribute="height" constant="60" id="JjG-GO-jkX"/>
+                            <constraint firstItem="qy3-0P-kLB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SV1-UW-BOJ" secondAttribute="top" constant="10" id="Ac8-Wc-kPn"/>
+                            <constraint firstItem="yQL-Rz-Fbc" firstAttribute="leading" secondItem="qy3-0P-kLB" secondAttribute="trailing" id="GbU-1y-oHp"/>
+                            <constraint firstAttribute="height" priority="999" constant="60" id="JjG-GO-jkX"/>
                             <constraint firstAttribute="bottom" secondItem="dDH-c1-8It" secondAttribute="bottom" id="LMB-Tg-CDG"/>
                             <constraint firstItem="qy3-0P-kLB" firstAttribute="centerY" secondItem="SV1-UW-BOJ" secondAttribute="centerY" id="Yq8-gY-6YR"/>
                             <constraint firstItem="qy3-0P-kLB" firstAttribute="leading" secondItem="SV1-UW-BOJ" secondAttribute="leading" constant="15" id="cBG-hc-KfT"/>
                             <constraint firstAttribute="bottom" secondItem="yQL-Rz-Fbc" secondAttribute="bottom" id="cN3-Ju-7Eo"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qy3-0P-kLB" secondAttribute="bottom" constant="15" id="edd-fn-RCP"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qy3-0P-kLB" secondAttribute="bottom" constant="10" id="edd-fn-RCP"/>
                             <constraint firstItem="dDH-c1-8It" firstAttribute="top" secondItem="SV1-UW-BOJ" secondAttribute="top" id="lm2-Mj-QMe"/>
                             <constraint firstItem="yQL-Rz-Fbc" firstAttribute="top" secondItem="SV1-UW-BOJ" secondAttribute="top" id="n5l-Sy-KPY"/>
                             <constraint firstAttribute="trailing" secondItem="yQL-Rz-Fbc" secondAttribute="trailing" id="yEp-Ir-Eg5"/>
@@ -92,13 +92,13 @@
                     <constraint firstItem="SV1-UW-BOJ" firstAttribute="top" secondItem="AcM-XP-5em" secondAttribute="top" id="yuS-rp-nhK"/>
                 </constraints>
             </collectionViewCellContentView>
-            <size key="customSize" width="641" height="95"/>
+            <size key="customSize" width="818" height="95"/>
             <connections>
                 <outlet property="ivBanner" destination="yQL-Rz-Fbc" id="txd-xH-v3l"/>
                 <outlet property="lbSubTitle" destination="TxK-Wh-Z5z" id="bHN-ZC-V0j"/>
                 <outlet property="lbTitle" destination="xLK-8A-R43" id="Mam-Xp-qSZ"/>
             </connections>
-            <point key="canvasLocation" x="154.34782608695653" y="152.67857142857142"/>
+            <point key="canvasLocation" x="24.637681159420293" y="152.67857142857142"/>
         </collectionViewCell>
     </objects>
 </document>

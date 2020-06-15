@@ -43,7 +43,7 @@ class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
             let width = pageListCellWidth
-            let height = width + 50
+            let height = width + 40
             flowLayout.itemSize = CGSize.init(width: width, height: height)
             flowLayout.estimatedItemSize = .zero
         }

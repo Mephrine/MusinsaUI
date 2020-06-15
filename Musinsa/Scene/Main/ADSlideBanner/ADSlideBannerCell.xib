@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-lL-Osp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="IvS-lL-Osp" secondAttribute="height" multiplier="23:10" id="4De-9z-ytj"/>
+                            <constraint firstAttribute="width" secondItem="IvS-lL-Osp" secondAttribute="height" multiplier="375:213" id="4De-9z-ytj"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rl-3j-zHW">
-                        <rect key="frame" x="286.5" y="125" width="87.5" height="35"/>
+                        <rect key="frame" x="286.5" y="180" width="87.5" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Xkt-0p-qNs">
                                 <rect key="frame" x="18.5" y="9.5" width="8.5" height="16"/>

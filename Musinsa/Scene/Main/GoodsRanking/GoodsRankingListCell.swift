@@ -69,7 +69,7 @@ class GoodsRankingListCell: BaseCollectionViewCell {
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
-        let pageHeight = (pageListCellWidth + 50) * 2 + 20
+        let pageHeight = (pageListCellWidth + 40) * 2 + 20
         self.vContainer.constraints.filter{ $0.identifier == "constContainerH" }.first?.constant = pageHeight
         
         setNeedsLayout()
