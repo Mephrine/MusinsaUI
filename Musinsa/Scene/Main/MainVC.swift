@@ -31,16 +31,27 @@ final class MainVC: BaseVC, ViewControllerProtocol {
 //    }
     
     //MARK: - LifeCycle
+    
+    deinit {
+        p("deinit MainVC")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.requestAPI.value = true
+        viewModel?.requestAPI?.value = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel?.deinitDynamic()
+        viewModel = nil
     }
     
     //MARK: - Bind
     override func bind() {
         guard let viewModel = viewModel else { return }
         
-        viewModel.mainData.bind({ [weak self] data in
+        viewModel.mainData?.bind({ [weak self] data in
             guard data != nil else { return }
             LoadingView.shared.hide {
                 DispatchQueue.main.async {
@@ -49,7 +60,7 @@ final class MainVC: BaseVC, ViewControllerProtocol {
             }
         })
         
-        viewModel.errorMsg.bind({ [weak self] error in
+        viewModel.errorMsg?.bind({ [weak self] error in
             guard error != .none else { return }
             LoadingView.shared.hide {
                 DispatchQueue.main.async {
@@ -138,7 +149,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension MainVC  {
     func adSlideBannerCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> ADSlideBannerCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adSlideBannerCell, for: indexPath) as! ADSlideBannerCell
-        if let viewModel = self.viewModel, let data = viewModel.mainData.value?.slideBanner {
+        if let viewModel = self.viewModel, let data = viewModel.mainData?.value?.slideBanner {
             let cellModel = ADSlideBannerModel(item: data, navigatior: viewModel.navigator)
             cell.configure(model: cellModel)
         }
@@ -148,7 +159,7 @@ extension MainVC  {
     
     func adBandBannerCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> ADBandBannerCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: adBandBannerCell, for: indexPath) as! ADBandBannerCell
-        if let viewModel = self.viewModel, let data = viewModel.mainData.value?.bandBanner {
+        if let viewModel = self.viewModel, let data = viewModel.mainData?.value?.bandBanner {
             let cellModel = ADBandBannerModel(item: data, navigator: viewModel.navigator)
             cell.configure(model: cellModel)
         }
@@ -159,7 +170,7 @@ extension MainVC  {
     func goodsRankingHeaderCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> GoodsRankingHeaderCell {
         // 헤더
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: goodsRankingHeaderCell, for: indexPath) as! GoodsRankingHeaderCell
-        if let viewModel = self.viewModel, let data = viewModel.mainData.value?.ranking?.header {
+        if let viewModel = self.viewModel, let data = viewModel.mainData?.value?.ranking?.header {
             let cellModel = GoodsRankingHeaderModel(item: data, navigator: viewModel.navigator)
             cell.configure(model: cellModel)
         }
@@ -170,7 +181,7 @@ extension MainVC  {
     func goodsRankingListCell(_ collectionView: UICollectionView, cellForRowAt indexPath: IndexPath) -> GoodsRankingListCell {
         // 헤더
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: goodsRankingListCell, for: indexPath) as! GoodsRankingListCell
-        if let viewModel = self.viewModel, let data = viewModel.mainData.value?.ranking {
+        if let viewModel = self.viewModel, let data = viewModel.mainData?.value?.ranking {
             let cellModel = GoodsRankingListModel(item: data, navigator: viewModel.navigator)
             cell.configure(model: cellModel)
         }

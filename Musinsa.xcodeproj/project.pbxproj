@@ -24,6 +24,7 @@
 		0350A7B624933FB700362B8F /* ADSlideBannerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350A7B524933FB700362B8F /* ADSlideBannerItemCell.swift */; };
 		0350A7B8249371B400362B8F /* ADSlideBannerPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350A7B7249371B400362B8F /* ADSlideBannerPageVC.swift */; };
 		0350A7BA2493E6BF00362B8F /* ADSlideBannerPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350A7B92493E6BF00362B8F /* ADSlideBannerPageVM.swift */; };
+		038978C7249B1F6A003EA0E2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038978C6249B1F6A003EA0E2 /* main.swift */; };
 		03B2DB02248FCF8500D8F812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB01248FCF8500D8F812 /* AppDelegate.swift */; };
 		03B2DB06248FCF8500D8F812 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB05248FCF8500D8F812 /* MainVC.swift */; };
 		03B2DB09248FCF8500D8F812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B2DB07248FCF8500D8F812 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		03B2DB5B248FE0A800D8F812 /* GoodsRankingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B2DB5A248FE0A800D8F812 /* GoodsRankingListCell.xib */; };
 		03B2DB5D248FE5B100D8F812 /* WKCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB5C248FE5B100D8F812 /* WKCookieStorage.swift */; };
 		03B2DB5F248FE6E900D8F812 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B2DB5E248FE6E900D8F812 /* BaseNavigationController.swift */; };
+		03DE44BC2498694500F93BA1 /* MusinsaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE44BB2498694500F93BA1 /* MusinsaTests.swift */; };
 		03F110042491FC190074BD83 /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F110032491FC190074BD83 /* MainData.swift */; };
 		03F11007249239030074BD83 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F11006249239030074BD83 /* AppService.swift */; };
 		03F110092492397A0074BD83 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F110082492397A0074BD83 /* MainService.swift */; };
@@ -67,6 +69,16 @@
 		03F1101A249288BB0074BD83 /* GoodsRankingListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F11019249288BB0074BD83 /* GoodsRankingListItemModel.swift */; };
 		03F1101C249289800074BD83 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1101B249289800074BD83 /* Double+Ext.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03DE44BE2498694500F93BA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03B2DAF6248FCF8500D8F812 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03B2DAFD248FCF8500D8F812;
+			remoteInfo = Musinsa;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		03F11011249276550074BD83 /* Embed Frameworks */ = {
@@ -83,6 +95,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		033C0D31249B0E3C0000ABF4 /* FBMemoryProfiler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBMemoryProfiler.framework; path = Carthage/Build/iOS/FBMemoryProfiler.framework; sourceTree = "<group>"; };
+		033C0D32249B0E3C0000ABF4 /* FBRetainCycleDetector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBRetainCycleDetector.framework; path = Carthage/Build/iOS/FBRetainCycleDetector.framework; sourceTree = "<group>"; };
+		033C0D33249B0E3C0000ABF4 /* FBAllocationTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAllocationTracker.framework; path = Carthage/Build/iOS/FBAllocationTracker.framework; sourceTree = "<group>"; };
+		033C0D3A249B0E470000ABF4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		033C0D3B249B0E470000ABF4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		034F1F652490A0540069349D /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		034F1F6B249183CF0069349D /* GoodsRankingListPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsRankingListPageVC.swift; sourceTree = "<group>"; };
 		034F1F6D249184330069349D /* GoodsRankingListPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsRankingListPageVM.swift; sourceTree = "<group>"; };
@@ -100,6 +117,8 @@
 		0350A7B524933FB700362B8F /* ADSlideBannerItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerItemCell.swift; sourceTree = "<group>"; };
 		0350A7B7249371B400362B8F /* ADSlideBannerPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerPageVC.swift; sourceTree = "<group>"; };
 		0350A7B92493E6BF00362B8F /* ADSlideBannerPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerPageVM.swift; sourceTree = "<group>"; };
+		038978C3249B10E9003EA0E2 /* Musinsa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musinsa-Bridging-Header.h"; sourceTree = "<group>"; };
+		038978C6249B1F6A003EA0E2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		03B2DAFE248FCF8500D8F812 /* Musinsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musinsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B2DB01248FCF8500D8F812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03B2DB05248FCF8500D8F812 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -133,6 +152,9 @@
 		03B2DB5A248FE0A800D8F812 /* GoodsRankingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsRankingListCell.xib; sourceTree = "<group>"; };
 		03B2DB5C248FE5B100D8F812 /* WKCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCookieStorage.swift; sourceTree = "<group>"; };
 		03B2DB5E248FE6E900D8F812 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		03DE44B92498694500F93BA1 /* MusinsaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusinsaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03DE44BB2498694500F93BA1 /* MusinsaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusinsaTests.swift; sourceTree = "<group>"; };
+		03DE44BD2498694500F93BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F110032491FC190074BD83 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		03F11006249239030074BD83 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		03F110082492397A0074BD83 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
@@ -151,6 +173,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F1100F249276550074BD83 /* Kingfisher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03DE44B62498694500F93BA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,9 +233,11 @@
 		034F1F84249192330069349D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				038978C6249B1F6A003EA0E2 /* main.swift */,
 				03B2DB0A248FCF8A00D8F812 /* Assets.xcassets */,
 				03B2DB0C248FCF8A00D8F812 /* LaunchScreen.storyboard */,
 				03B2DB0F248FCF8A00D8F812 /* Info.plist */,
+				038978C3249B10E9003EA0E2 /* Musinsa-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				03B2DB00248FCF8500D8F812 /* Musinsa */,
+				03DE44BA2498694500F93BA1 /* MusinsaTests */,
 				03B2DAFF248FCF8500D8F812 /* Products */,
 				03F1100D249276540074BD83 /* Frameworks */,
 			);
@@ -240,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				03B2DAFE248FCF8500D8F812 /* Musinsa.app */,
+				03DE44B92498694500F93BA1 /* MusinsaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,6 +383,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		03DE44BA2498694500F93BA1 /* MusinsaTests */ = {
+			isa = PBXGroup;
+			children = (
+				03DE44BB2498694500F93BA1 /* MusinsaTests.swift */,
+				03DE44BD2498694500F93BA1 /* Info.plist */,
+			);
+			path = MusinsaTests;
+			sourceTree = "<group>";
+		};
 		03F11005249238F70074BD83 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +412,11 @@
 		03F1100D249276540074BD83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				033C0D3A249B0E470000ABF4 /* Nimble.framework */,
+				033C0D3B249B0E470000ABF4 /* Quick.framework */,
+				033C0D33249B0E3C0000ABF4 /* FBAllocationTracker.framework */,
+				033C0D31249B0E3C0000ABF4 /* FBMemoryProfiler.framework */,
+				033C0D32249B0E3C0000ABF4 /* FBRetainCycleDetector.framework */,
 				03F1100E249276550074BD83 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
@@ -397,6 +444,24 @@
 			productReference = 03B2DAFE248FCF8500D8F812 /* Musinsa.app */;
 			productType = "com.apple.product-type.application";
 		};
+		03DE44B82498694500F93BA1 /* MusinsaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03DE44C22498694500F93BA1 /* Build configuration list for PBXNativeTarget "MusinsaTests" */;
+			buildPhases = (
+				03DE44B52498694500F93BA1 /* Sources */,
+				03DE44B62498694500F93BA1 /* Frameworks */,
+				03DE44B72498694500F93BA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03DE44BF2498694500F93BA1 /* PBXTargetDependency */,
+			);
+			name = MusinsaTests;
+			productName = MusinsaTests;
+			productReference = 03DE44B92498694500F93BA1 /* MusinsaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -409,6 +474,10 @@
 				TargetAttributes = {
 					03B2DAFD248FCF8500D8F812 = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					03DE44B82498694500F93BA1 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 03B2DAFD248FCF8500D8F812;
 					};
 				};
 			};
@@ -426,6 +495,7 @@
 			projectRoot = "";
 			targets = (
 				03B2DAFD248FCF8500D8F812 /* Musinsa */,
+				03DE44B82498694500F93BA1 /* MusinsaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -445,6 +515,13 @@
 				034F1F832491922D0069349D /* Musinsa.json in Resources */,
 				03B2DB09248FCF8500D8F812 /* Main.storyboard in Resources */,
 				03B2DB55248FE05200D8F812 /* ADBandBannerCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03DE44B72498694500F93BA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +561,7 @@
 				034F1F7F2491905C0069349D /* ADBandBanner.swift in Sources */,
 				03F11007249239030074BD83 /* AppService.swift in Sources */,
 				03B2DB26248FD3CE00D8F812 /* MainVM.swift in Sources */,
+				038978C7249B1F6A003EA0E2 /* main.swift in Sources */,
 				03B2DB4F248FDFA200D8F812 /* GoodsRankingHeaderCell.swift in Sources */,
 				03F110042491FC190074BD83 /* MainData.swift in Sources */,
 				03F11016249288740074BD83 /* GoodsRankingListItemCell.swift in Sources */,
@@ -526,7 +604,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03DE44B52498694500F93BA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03DE44BC2498694500F93BA1 /* MusinsaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03DE44BF2498694500F93BA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03B2DAFD248FCF8500D8F812 /* Musinsa */;
+			targetProxy = 03DE44BE2498694500F93BA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		03B2DB07248FCF8500D8F812 /* Main.storyboard */ = {
@@ -667,7 +761,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DLY5388CL9;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -677,10 +773,12 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mephrine.musinsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Musinsa/Supporting Files/Musinsa-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -691,7 +789,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DLY5388CL9;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -701,12 +801,54 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mephrine.musinsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Musinsa/Supporting Files/Musinsa-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		03DE44C02498694500F93BA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLY5388CL9;
+				INFOPLIST_FILE = MusinsaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MusinsaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musinsa.app/Musinsa";
+			};
+			name = Debug;
+		};
+		03DE44C12498694500F93BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DLY5388CL9;
+				INFOPLIST_FILE = MusinsaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MusinsaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musinsa.app/Musinsa";
 			};
 			name = Release;
 		};
@@ -727,6 +869,15 @@
 			buildConfigurations = (
 				03B2DB13248FCF8A00D8F812 /* Debug */,
 				03B2DB14248FCF8A00D8F812 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03DE44C22498694500F93BA1 /* Build configuration list for PBXNativeTarget "MusinsaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03DE44C02498694500F93BA1 /* Debug */,
+				03DE44C12498694500F93BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

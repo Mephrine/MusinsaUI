@@ -18,6 +18,7 @@ extension NSLayoutConstraint {
     - Returns: NSLayoutConstraint
     - Note: identifier 지정 및 활성화
     */
+    @discardableResult
     func addIdAndActive(_ id: String) -> NSLayoutConstraint {
         self.identifier = id
         self.isActive = true
@@ -33,9 +34,11 @@ extension NSLayoutConstraint {
     - Returns:
     - Note: NSLayoutConstraint 우선순위 지정
     */
-    func setPriority(_ value: Float?) {
-        guard value != nil else { return }
+    @discardableResult
+    func setPriority(_ value: Float?) -> NSLayoutConstraint {
+        guard value != nil else { return self }
         self.priority = .init(rawValue: value!)
+        return self
     }
     
     /**

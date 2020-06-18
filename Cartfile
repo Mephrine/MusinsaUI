@@ -1,1 +1,4 @@
 github "onevcat/Kingfisher"
+github "Quick/Quick"
+github "Quick/Nimble"
+github "facebook/FBMemoryProfiler"

@@ -16,7 +16,7 @@ import WebKit
  - Note: 상세 웹뷰 화면 페이지 ViewController
 */
 final class DetailVC: BaseVC, ViewControllerProtocol {
-    var viewModel: DetailVM?
+    var viewModel: DetailVM? = nil
     
     //MARK: - let
     let isWebBouncing = false           // 웹뷰 바운싱
@@ -38,7 +38,7 @@ final class DetailVC: BaseVC, ViewControllerProtocol {
         initWebView()
         super.viewDidLoad()
         
-        self.viewModel?.requestWebViewURL.value = true
+        self.viewModel?.loadCurrentURL()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +59,7 @@ final class DetailVC: BaseVC, ViewControllerProtocol {
     //MARK: - Bind
     override func bind() {
         guard let viewModel = self.viewModel else { return }
-        viewModel.loadURL.bind { [weak self] strURL in
+        viewModel.loadURL?.bind { [weak self] strURL in
             if let requestURL = strURL {
                 self?.requestWebView(requestURL)
             }
@@ -111,11 +111,18 @@ final class DetailVC: BaseVC, ViewControllerProtocol {
         webView.makeConstSuperView()
     }
     
-    deinit {
-        LoadingView.shared.hide()
-        webView?.stopLoading()
-        webView?.loadHTMLString("", baseURL: nil)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    
+        webView.removeFromSuperview()
         webView = nil
+        
+        viewModel?.deinitDynamic()
+        viewModel = nil
+    }
+    
+    deinit {
+        p("deinit DetailVC")
     }
     
     
@@ -136,15 +143,15 @@ final class DetailVC: BaseVC, ViewControllerProtocol {
             p("HTTPCookieStorage cookie : \(cookies)")
             
             if cookies.count == 0 {
-                WKCookieStorage.shared.addAllCookies {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.webView.load(request)
+                WKCookieStorage.shared.addAllCookies { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.webView?.load(request)
                     }
                 }
             }else{
-                WKCookieStorage.shared.setCookies(cookies: cookies) {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.webView.load(request)
+                WKCookieStorage.shared.setCookies(cookies: cookies) { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.webView?.load(request)
                     }
                 }
             }
@@ -160,7 +167,7 @@ final class DetailVC: BaseVC, ViewControllerProtocol {
      - Note: 마지막에 로드된 URL로 리로드
     */
     func reloadWebView() {
-        self.viewModel?.requestWebViewURL.value = true
+        self.viewModel?.loadCurrentURL()
     }
     
     

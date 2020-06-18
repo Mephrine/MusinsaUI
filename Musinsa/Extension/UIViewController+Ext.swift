@@ -18,12 +18,12 @@ extension UIViewController {
      - Returns: Self
      - Note: 해당 Storyboard에서 현재 뷰컨트롤러를 생성
     */
-    public func instantiate(storyBoardName: String) -> Self {
+    public static func instantiate(storyBoardName: String = "Main") -> Self? {
         let sb = UIStoryboard.init(name: storyBoardName, bundle: nil)
         if let viewController = sb.instantiateViewController(withIdentifier: String(describing: self)) as? Self {
             return viewController
         }
-        return self
+        return nil
     }
 }
 

@@ -16,7 +16,7 @@ import SafariServices
  - Note: 뷰컨트롤러간의 이동을 담당하는 클래스
 */
 class Navigator {
-    private let navigation: UINavigationController
+    let navigation: UINavigationController
     
     init(navi: UINavigationController) {
         self.navigation = navi

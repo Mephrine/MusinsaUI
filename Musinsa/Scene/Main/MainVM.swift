@@ -16,11 +16,11 @@ import Foundation
 */
 fileprivate protocol MainProtocol {
     //Input
-    var requestAPI: Dynamic<Bool> { get set }
+    var requestAPI: Dynamic<Bool>? { get set }
     
     // Output
-    var mainData: Dynamic<MainData?> { get set }
-    var errorMsg: Dynamic<CallAPI.APIError> { get set }
+    var mainData: Dynamic<MainData?>? { get set }
+    var errorMsg: Dynamic<CallAPI.APIError>? { get set }
     
     //func
     func requsetMain()
@@ -34,11 +34,11 @@ fileprivate protocol MainProtocol {
 */
 final class MainVM: BaseVM, MainProtocol {
     // Input
-    var requestAPI: Dynamic<Bool> = Dynamic(false)
+    var requestAPI: Dynamic<Bool>? = Dynamic(false)
     
     // Output
-    var mainData: Dynamic<MainData?> = Dynamic(nil)
-    var errorMsg: Dynamic<CallAPI.APIError> = Dynamic(.none)
+    var mainData: Dynamic<MainData?>? = Dynamic(nil)
+    var errorMsg: Dynamic<CallAPI.APIError>? = Dynamic(.none)
     
     // service
     typealias Service = HasMainService
@@ -56,7 +56,7 @@ final class MainVM: BaseVM, MainProtocol {
     
     //MARK: - bind
     func bind() {
-        self.requestAPI.bind { [weak self] result in
+        self.requestAPI?.bind { [weak self] result in
             if result {
                 self?.requsetMain()
             }
@@ -69,12 +69,18 @@ final class MainVM: BaseVM, MainProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                self.mainData.value = data
+                self.mainData?.value = data
                 break
             case .failure(let error):
-                self.errorMsg.value = error
+                self.errorMsg?.value = error
                 break
             }
         }
+    }
+    
+    func deinitDynamic() {
+        self.requestAPI = nil
+        self.mainData = nil
+        self.errorMsg = nil
     }
 }

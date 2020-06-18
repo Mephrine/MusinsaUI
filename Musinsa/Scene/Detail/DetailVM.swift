@@ -15,9 +15,6 @@ import Foundation
  - Note: Detail 뷰모델에서 정의해야할 프로토콜
 */
 fileprivate protocol DetailProtocol {
-    //Input
-    var requestWebViewURL: Dynamic<Bool> { get set }
-    
     // Output
     var loadURL: Dynamic<String?> { get set }
 }
@@ -32,11 +29,8 @@ final class DetailVM: BaseVM {
     // navigator
     private let navigator: Navigator
     
-    // Input
-    var requestWebViewURL: Dynamic<Bool>
-    
     // Output
-    var loadURL: Dynamic<String?> = Dynamic(nil)
+    var loadURL: Dynamic<String?>? = Dynamic(nil)
     
     // State
     private var currentURL: String? = nil
@@ -44,21 +38,18 @@ final class DetailVM: BaseVM {
     init(linkURL: String, navigator: Navigator) {
         self.navigator = navigator
         self.currentURL = linkURL
-        requestWebViewURL = Dynamic(false)
         super.init()
-        self.bind()
     }
     
-    //MARK: - bind
-    private func bind() {
-        self.requestWebViewURL.bind { isRequest in
-            if isRequest {
-                self.loadURL.value = self.currentURL
-            }
-        }
+    deinit {
+        p("deinit DetailVM")
     }
     
     //MARK: - e.g.
+    func loadCurrentURL() {
+        self.loadURL?.value = currentURL
+    }
+    
     func setCurrentURL(_ strURL: String) {
         self.currentURL = strURL
     }
@@ -104,6 +95,10 @@ final class DetailVM: BaseVM {
             Utils.openExternalLink(urlStr: url.absoluteString)
             return true
         }
+    }
+    
+    func deinitDynamic() {
+        self.loadURL = nil
     }
     
     //MARK: - Navigation

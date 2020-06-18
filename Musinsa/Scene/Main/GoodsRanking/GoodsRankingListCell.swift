@@ -59,6 +59,7 @@ class GoodsRankingListCell: BaseCollectionViewCell {
 
         pageViewController.delegate = self
         pageViewController.dataSource = self
+        pageViewController.view.backgroundColor = .white
 
         self.vContainer.addSubview(pageViewController.view)
 

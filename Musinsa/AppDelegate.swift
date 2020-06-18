@@ -8,7 +8,6 @@
 
 import UIKit
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
@@ -25,12 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigation = BaseNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
-        
+
         let mainVM = MainVM(service: service, navigator: Navigator(navi: navigation))
         let mainVC = MainVC.instantiate(withViewModel: mainVM)!
         
         navigation.setViewControllers([mainVC], animated: false)
-        
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = navigation

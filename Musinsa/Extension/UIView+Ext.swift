@@ -162,7 +162,6 @@ extension UIView {
         self.makeConstCenterY(superView.centerYAnchor)
     }
     
-    
     /**
     # setConst
     - Author: Mephrine
@@ -181,55 +180,55 @@ extension UIView {
             switch symbol {
             case .equal:
                 if identifier.lowercased().contains("top") {
-                    topAnchor.constraint(equalTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    topAnchor.constraint(equalTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else if identifier.lowercased().contains("bottom") {
-                    bottomAnchor.constraint(equalTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    bottomAnchor.constraint(equalTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else {
-                    centerYAnchor.constraint(equalTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerYAnchor.constraint(equalTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             case .grater:
                 if identifier.lowercased().contains("top") {
-                    topAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    topAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                     
                 } else if identifier.lowercased().contains("bottom") {
-                    bottomAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    bottomAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }  else {
-                    centerYAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerYAnchor.constraint(greaterThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             case .less:
                 if identifier.lowercased().contains("top") {
-                    topAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    topAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else if identifier.lowercased().contains("bottom") {
-                    bottomAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    bottomAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }  else {
-                    centerYAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerYAnchor.constraint(lessThanOrEqualTo: anchorY, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             }
         } else if let anchorX = anchor as? NSLayoutXAxisAnchor {
             switch symbol {
             case .equal:
                 if identifier.lowercased().contains("left") {
-                    leftAnchor.constraint(equalTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    leftAnchor.constraint(equalTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else if identifier.lowercased().contains("right") {
-                    rightAnchor.constraint(equalTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    rightAnchor.constraint(equalTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }  else {
-                    centerXAnchor.constraint(equalTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerXAnchor.constraint(equalTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             case .grater:
                 if identifier.lowercased().contains("left") {
-                    leftAnchor.constraint(greaterThanOrEqualTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    leftAnchor.constraint(greaterThanOrEqualTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else if identifier.lowercased().contains("right") {
-                    rightAnchor.constraint(equalTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    rightAnchor.constraint(equalTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }  else {
-                    centerXAnchor.constraint(greaterThanOrEqualTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerXAnchor.constraint(greaterThanOrEqualTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             case .less:
                 if identifier.lowercased().contains("left") {
-                    leftAnchor.constraint(lessThanOrEqualTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    leftAnchor.constraint(lessThanOrEqualTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 } else if identifier.lowercased().contains("right") {
-                    rightAnchor.constraint(equalTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    rightAnchor.constraint(equalTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }  else {
-                    centerXAnchor.constraint(lessThanOrEqualTo: anchorX, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                    centerXAnchor.constraint(lessThanOrEqualTo: anchorX, constant: padding).setPriority(priority).addIdAndActive(identifier)
                 }
             }
         } else if let anchorDimession = anchor as? NSLayoutDimension {
@@ -237,43 +236,43 @@ extension UIView {
             case .equal:
                 if identifier.lowercased().contains("Aspect") {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(equalTo: heightAnchor, multiplier: padding) .addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(equalTo: heightAnchor, multiplier: padding).setPriority(priority) .addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(equalTo: widthAnchor, multiplier: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(equalTo: widthAnchor, multiplier: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 } else {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(equalToConstant: padding).addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(equalToConstant: padding).setPriority(priority).addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(equalToConstant: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(equalToConstant: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 }
             case .grater:
                 if identifier.lowercased().contains("Aspect") {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(greaterThanOrEqualTo: heightAnchor, multiplier: padding) .addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(greaterThanOrEqualTo: heightAnchor, multiplier: padding).setPriority(priority) .addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 } else {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(greaterThanOrEqualTo: anchorDimession, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(greaterThanOrEqualTo: anchorDimession, constant: padding).setPriority(priority).addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(greaterThanOrEqualTo: anchorDimession, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(greaterThanOrEqualTo: anchorDimession, constant: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 }
             case .less:
                 if identifier.lowercased().contains("Aspect") {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: padding) .addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: padding).setPriority(priority) .addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 } else {
                     if identifier.lowercased().contains("width") {
-                        widthAnchor.constraint(lessThanOrEqualTo: anchorDimession, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                        widthAnchor.constraint(lessThanOrEqualTo: anchorDimession, constant: padding).setPriority(priority).addIdAndActive(identifier)
                     } else {
-                        heightAnchor.constraint(lessThanOrEqualTo: anchorDimession, constant: padding).addIdAndActive(identifier).setPriority(priority)
+                        heightAnchor.constraint(lessThanOrEqualTo: anchorDimession, constant: padding).setPriority(priority).addIdAndActive(identifier)
                     }
                 }
             }
@@ -468,7 +467,7 @@ extension UIView {
     - Returns:
     - Note: 파라미터값들로 width constraints 적용
     */
-    func makeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+    func makeConstWidth(_ width: CGFloat, _ anchor: NSLayoutDimension? = nil, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         if width != 0 {
             setConst("constWidth", widthAnchor, width, symbol ?? .equal, priority)
         }
@@ -485,9 +484,9 @@ extension UIView {
     - Returns:
     - Note: 파라미터값들로 width constraints 재적용
     */
-    func remakeConstWidth(_ width: CGFloat, _ symbol: Symbol? = .equal, priority: Float? = nil) {
+    func remakeConstWidth(_ width: CGFloat, _ anchor: NSLayoutDimension? = nil, _ symbol: Symbol? = .equal, priority: Float? = nil) {
         self.constraintWithIdentifier("constWidth")?.isActive = false
-        self.makeConstWidth(width, symbol, priority: priority)
+        self.makeConstWidth(width, anchor, symbol, priority: priority)
     }
     
     /**
@@ -592,7 +591,6 @@ extension UIView {
         self.constraintWithIdentifier("constAspectHeight")?.isActive = false
         self.makeConstAspectRatioHeight(aspect1, aspect2, symbol, priority: priority)
     }
-    
     
     /**
      # constraintWithIdentifier

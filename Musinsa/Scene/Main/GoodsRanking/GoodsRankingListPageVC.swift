@@ -35,6 +35,7 @@ class GoodsRankingListPageVC: BaseVC, ViewControllerProtocol {
         self.cvList.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         self.cvList.register(UINib(nibName: reusableCell, bundle: nil), forCellWithReuseIdentifier: reusableCell)
         self.cvList.isScrollEnabled  = false
+        self.cvList.backgroundColor = .white
         
         if let flowLayout = self.cvList.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumInteritemSpacing = 0
