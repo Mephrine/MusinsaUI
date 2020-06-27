@@ -119,7 +119,7 @@
 		0350A7B92493E6BF00362B8F /* ADSlideBannerPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSlideBannerPageVM.swift; sourceTree = "<group>"; };
 		038978C3249B10E9003EA0E2 /* Musinsa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musinsa-Bridging-Header.h"; sourceTree = "<group>"; };
 		038978C6249B1F6A003EA0E2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		03B2DAFE248FCF8500D8F812 /* Musinsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musinsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03B2DAFE248FCF8500D8F812 /* PracticeUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B2DB01248FCF8500D8F812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03B2DB05248FCF8500D8F812 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		03B2DB08248FCF8500D8F812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 		03B2DAFF248FCF8500D8F812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03B2DAFE248FCF8500D8F812 /* Musinsa.app */,
+				03B2DAFE248FCF8500D8F812 /* PracticeUI.app */,
 				03DE44B92498694500F93BA1 /* MusinsaTests.xctest */,
 			);
 			name = Products;
@@ -441,7 +441,7 @@
 			);
 			name = Musinsa;
 			productName = Musinsa;
-			productReference = 03B2DAFE248FCF8500D8F812 /* Musinsa.app */;
+			productReference = 03B2DAFE248FCF8500D8F812 /* PracticeUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		03DE44B82498694500F93BA1 /* MusinsaTests */ = {
@@ -776,8 +776,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mephrine.musinsa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.mephrine.musinsaUI;
+				PRODUCT_NAME = PracticeUI;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Musinsa/Supporting Files/Musinsa-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -804,8 +804,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mephrine.musinsa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.mephrine.musinsaUI;
+				PRODUCT_NAME = PracticeUI;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Musinsa/Supporting Files/Musinsa-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

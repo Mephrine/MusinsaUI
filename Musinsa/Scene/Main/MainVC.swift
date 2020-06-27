@@ -26,10 +26,6 @@ final class MainVC: BaseVC, ViewControllerProtocol {
     @IBOutlet weak var cvMain: UICollectionView!
     var viewModel: MainVM?
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-    
     //MARK: - LifeCycle
     
     deinit {
@@ -77,15 +73,12 @@ final class MainVC: BaseVC, ViewControllerProtocol {
     
     //MARK: - UI
     override func initView() {
-        //tableView configuration
         cvMain.delegate = self
         cvMain.dataSource = self
         cvMain.backgroundColor = .white
         if #available(iOS 11.0, *) {
             cvMain.contentInsetAdjustmentBehavior = .never
         }
-//        cvMain.alwaysBounceVertical = false
-//        cvMain.bounces = false
         
         // flowLayout
         if let flowLayout = cvMain.collectionViewLayout as? UICollectionViewFlowLayout {

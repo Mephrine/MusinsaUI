@@ -29,7 +29,6 @@ protocol ViewControllerProtocol: class {
 */
 class BaseVC: UIViewController {
     //MARK: - var
-//    var viewModel: BaseVM?
     var statusBarShouldBeHidden = false
     
     // PopGesture 플래그 변수

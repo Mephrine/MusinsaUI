@@ -62,14 +62,6 @@ class CallAPI {
     
     static let shared: CallAPI = CallAPI()
     
-    private var session: URLSession {
-        let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = SESSION_TIME_OUT
-        config.timeoutIntervalForResource = SESSION_TIME_OUT
-        return URLSession(configuration: config)
-    }
-        
-    
     // MARK: - API List
     /**
      # mainData
